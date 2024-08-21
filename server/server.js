@@ -78,10 +78,25 @@ httpApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
 function endTurn(req, res) { console.log(1); } // username
 function playCard(req, res) { console.log(2); } // username or id, target
 function cardInfo(req, res) { console.log(3); } // card name or id
-function joinGame(req, res) { console.log(req.headers); } // username, joincode
+function joinGame(req, res) {
+    var username = req.headers.username;
+    var joincode = req.headers.joincode;
+    fs.readFile('gameLobbies.json', 'utf8', (err, data) => {
+        var lobbies = JSON.parse(data);
+        if (lobbies[joincode]) {
+            if (!lobbies[joincode].includes(username)) {
+                lobbies[joincode].push(username)
+                res.send("joined game lobby")
+                fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err); });
+            }
+            else res.send("no duplicate usernames allowed")
+        }
+        else res.send('game does not exist')
+    })
+ } // username, joincode
 function createGame(req, res) { } // username
 function quitGame(req, res) { console.log(6); } // username
-function checkGameStarted(req, res) { 
+function checkGameStarted(req, res) {
     const joincode = req.headers.joincode;
 
     fs.readFile('games.json', 'utf8', (err, data) => {
@@ -92,7 +107,7 @@ function checkGameStarted(req, res) {
         }
 
         const games = JSON.parse(data || "{}");
-        
+
         if (games[joincode]) {
             res.send("yes");
         } else {
