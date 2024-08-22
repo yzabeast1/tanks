@@ -75,14 +75,14 @@ httpApp.post('/quitGame', (req, res) => { quitGame(req, res) });
 httpApp.post('/startGame', (req, res) => { startGame(req, res) });
 httpApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
 
-function endTurn(req, res) { } // username
+const endTurn=require("./commands/endTurn.js")//username, joincode
 function playCard(req, res) { } // username or id, target
 function cardInfo(req, res) { } // card name or id
-const joinGame=require("./commands/joinGame.js")
+const joinGame=require("./commands/joinGame.js")//username, joincode
 function createGame(req, res) { } // username
 function quitGame(req, res) { } // username
-const checkGameStarted=require("./commands/checkGameStarted.js");
-const startGame=require("./commmands/startGame.js")
+const checkGameStarted=require("./commands/checkGameStarted.js");//joincode
+const startGame=require("./commands/startGame.js")//joincode
 
 function createGameID(length) {
     let result = '';
