@@ -79,19 +79,7 @@ const endTurn=require("./commands/endTurn.js")//username, joincode
 function playCard(req, res) { } // username or id, target
 function cardInfo(req, res) { } // card name or id
 const joinGame=require("./commands/joinGame.js")//username, joincode
-function createGame(req, res) { } // username
+const createGame=require("./commands/createGame.js") // username
 function quitGame(req, res) { } // username
 const checkGameStarted=require("./commands/checkGameStarted.js");//joincode
 const startGame=require("./commands/startGame.js")//joincode
-
-function createGameID(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-    }
-    return result;
-}
