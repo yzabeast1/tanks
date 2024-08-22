@@ -74,6 +74,7 @@ httpApp.post('/createGame', (req, res) => { createGame(req, res) });
 httpApp.post('/quitGame', (req, res) => { quitGame(req, res) });
 httpApp.post('/startGame', (req, res) => { startGame(req, res) });
 httpApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
+httpApp.get('/gameState',(req, res) => {gameState(req, res)})
 
 const endTurn=require("./commands/endTurn.js")//username, joincode
 function playCard(req, res) { } // username or id, target
@@ -83,3 +84,4 @@ const createGame=require("./commands/createGame.js") // username
 function quitGame(req, res) { } // username
 const checkGameStarted=require("./commands/checkGameStarted.js");//joincode
 const startGame=require("./commands/startGame.js")//joincode
+const gameState=require("./commands/gameState.js")//joincode
