@@ -81,7 +81,7 @@ function playCard(req, res) { } // username or id, target
 function cardInfo(req, res) { } // card name or id
 const joinGame=require("./commands/joinGame.js")//username, joincode
 const createGame=require("./commands/createGame.js") // username
-function quitGame(req, res) { } // username
+const quitGame=require("./commands/quitGame.js")//username, joincode
 const checkGameStarted=require("./commands/checkGameStarted.js");//joincode
 const startGame=require("./commands/startGame.js")//joincode
 const gameState=require("./commands/gameState.js")//joincode
