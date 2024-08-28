@@ -51,6 +51,8 @@ try {
     httpsApp.post('/quitGame', (req, res) => { quitGame(req, res) });
     httpsApp.post('/startGame', (req, res) => { startGame(req, res) });
     httpsApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
+    httpsApp.get('/getChat', (req, res) => { getChat(req, res) })
+    httpsApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 }
 catch (e) {
     console.log(`Error with HTTPS\n ${e}`);
@@ -74,14 +76,18 @@ httpApp.post('/createGame', (req, res) => { createGame(req, res) });
 httpApp.post('/quitGame', (req, res) => { quitGame(req, res) });
 httpApp.post('/startGame', (req, res) => { startGame(req, res) });
 httpApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
-httpApp.get('/gameState',(req, res) => {gameState(req, res)})
+httpApp.get('/gameState', (req, res) => { gameState(req, res) })
+httpApp.get('/getChat', (req, res) => { getChat(req, res) })
+httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 
-const endTurn=require("./commands/endTurn.js")//username, joincode
+const endTurn = require("./commands/endTurn.js")//username, joincode
 function playCard(req, res) { } // username or id, target
 function cardInfo(req, res) { } // card name or id
-const joinGame=require("./commands/joinGame.js")//username, joincode
-const createGame=require("./commands/createGame.js") // username
-const quitGame=require("./commands/quitGame.js")//username, joincode
-const checkGameStarted=require("./commands/checkGameStarted.js");//joincode
-const startGame=require("./commands/startGame.js")//joincode
-const gameState=require("./commands/gameState.js")//joincode
+const joinGame = require("./commands/joinGame.js")//username, joincode
+const createGame = require("./commands/createGame.js") // username
+const quitGame = require("./commands/quitGame.js")//username, joincode
+const checkGameStarted = require("./commands/checkGameStarted.js");//joincode
+const startGame = require("./commands/startGame.js")//joincode
+const gameState = require("./commands/gameState.js")//joincode
+const getChat = require("./commands/getChat.js")//joincode
+const sendChat=require("./commands/sendChat.js")//joincode, username
