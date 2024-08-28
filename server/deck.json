@@ -1,0 +1,170 @@
+[
+    {
+        "name": "repair",
+        "type": "support",
+        "count": 4,
+        "image-location": "cards/repair.png"
+    },
+    {
+        "name": "radar",
+        "type": "support",
+        "count": 2,
+        "image-location": "cards/radar.png"
+    },
+    {
+        "name": "repair kit",
+        "type": "support",
+        "count": 3,
+        "image-location": "cards/repair-kit.png"
+    },
+    {
+        "name": "armor",
+        "type": "support",
+        "count": 4,
+        "image-location": "cards/armor.png"
+    },
+    {
+        "name": "wasteful",
+        "type": "support",
+        "count": 2,
+        "image-location": "cards/wasteful.png"
+    },
+    {
+        "name": "cold war",
+        "type": "support",
+        "count": 2,
+        "image-location": "cards/cold-war.png"
+    },
+    {
+        "name": "last stand",
+        "type": "support",
+        "count": 1,
+        "image-location": "cards/last-stand.png"
+    },
+    {
+        "name": "safety shield",
+        "type": "support",
+        "count": 2,
+        "image-location": "cards/safety-shield.png"
+    },
+    {
+        "name": "steal",
+        "type": "plus",
+        "count": 5,
+        "image-location": "cards/steal.png"
+    },
+    {
+        "name": "draw 2",
+        "type": "plus",
+        "count": 2,
+        "image-location": "cards/draw-2.png"
+    },
+    {
+        "name": "helpful hand",
+        "type": "plus",
+        "count": 2,
+        "image-location": "cards/helpful-hand.png"
+    },
+    {
+        "name": "crack",
+        "type": "shooting",
+        "count": 4,
+        "image-location": "cards/crack.png"
+    },
+    {
+        "name": "dent",
+        "type": "shooting",
+        "count": 8,
+        "image-location": "cards/dent.png"
+    },
+    {
+        "name": "stolen parts",
+        "type": "shooting",
+        "count": 3,
+        "image-location": "cards/stolen-parts.png"
+    },
+    {
+        "name": "distractor missile",
+        "type": "shooting",
+        "count": 5,
+        "image-location": "cards/distractor-missile.png"
+    },
+    {
+        "name": "aimed missile",
+        "type": "shooting",
+        "count": 8,
+        "image-location": "cards/aimed-missile.png"
+    },
+    {
+        "name": "locked on",
+        "type": "shooting",
+        "count": 4,
+        "image-location": "cards/locked-on.png"
+    },
+    {
+        "name": "multistrike",
+        "type": "shooting",
+        "count": 1,
+        "image-location": "cards/multistrike.png"
+    },
+    {
+        "name": "big bomb",
+        "type": "shooting",
+        "count": 4,
+        "image-location": "cards/big-bomb.png"
+    },
+    {
+        "name": "small bomb",
+        "type": "shooting",
+        "count": 8,
+        "image-location": "cards/small-bomb.png"
+    },
+    {
+        "name": "landmine",
+        "type": "shooting",
+        "count": 1,
+        "image-location": "cards/landmine.png"
+    },
+    {
+        "name": "nuke",
+        "type": "shooting",
+        "count": 1,
+        "image-location": "cards/nuke.png"
+    },
+    {
+        "name": "no shooting",
+        "type": "event",
+        "count": 2,
+        "image-location": "cards/no-shooting.png"
+    },
+    {
+        "name": "more ammo",
+        "type": "event",
+        "count": 2,
+        "image-location": "cards/more-ammo.png"
+    },
+    {
+        "name": "new model",
+        "type": "event",
+        "count": 2,
+        "image-location": "cards/new-model.png"
+    },
+    {
+        "name": "airstrike",
+        "type": "event",
+        "count": 1,
+        "image-location": "cards/airstrike.png"
+    },
+    {
+        "name": "spray",
+        "type": "event",
+        "count": 1,
+        "image-location": "cards/spray.png"
+    },
+    {
+        "name": "lottery",
+        "type": "event",
+        "count": 1,
+        "image-location": "cards/lottery.png"
+    }
+]
