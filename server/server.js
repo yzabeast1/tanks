@@ -79,7 +79,7 @@ httpApp.get('/getChat', (req, res) => { getChat(req, res) })
 httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
-function playCard(req, res) { } // username or id, target
+function playCard(req, res) { } // username, joincode, target
 const joinGame = require("./commands/joinGame.js")//username, joincode
 const createGame = require("./commands/createGame.js") // username
 const quitGame = require("./commands/quitGame.js")//username, joincode
