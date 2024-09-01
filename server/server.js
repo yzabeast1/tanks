@@ -44,6 +44,7 @@ try {
     httpsApp.use(bodyParser.json());
 
     httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
+    httpsApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
     httpsApp.post('/playCard', (req, res) => { playCard(req, res) });
     httpsApp.post('/joinGame', (req, res) => { joinGame(req, res) });
     httpsApp.post('/createGame', (req, res) => { createGame(req, res) });
@@ -68,6 +69,7 @@ httpApp.listen(httpPort, () => {
 
 
 httpApp.post('/endTurn', (req, res) => { endTurn(req, res) });
+httpApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
 httpApp.post('/playCard', (req, res) => { playCard(req, res) });
 httpApp.post('/joinGame', (req, res) => { joinGame(req, res) });
 httpApp.post('/createGame', (req, res) => { createGame(req, res) });
@@ -79,6 +81,7 @@ httpApp.get('/getChat', (req, res) => { getChat(req, res) })
 httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
+const cardInfo=require("./commands/cardInfo.js") // card id
 function playCard(req, res) { } // username, joincode, target
 const joinGame = require("./commands/joinGame.js")//username, joincode
 const createGame = require("./commands/createGame.js") // username
