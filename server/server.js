@@ -45,7 +45,6 @@ try {
 
     httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
     httpsApp.post('/playCard', (req, res) => { playCard(req, res) });
-    httpsApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
     httpsApp.post('/joinGame', (req, res) => { joinGame(req, res) });
     httpsApp.post('/createGame', (req, res) => { createGame(req, res) });
     httpsApp.post('/quitGame', (req, res) => { quitGame(req, res) });
@@ -70,7 +69,6 @@ httpApp.listen(httpPort, () => {
 
 httpApp.post('/endTurn', (req, res) => { endTurn(req, res) });
 httpApp.post('/playCard', (req, res) => { playCard(req, res) });
-httpApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
 httpApp.post('/joinGame', (req, res) => { joinGame(req, res) });
 httpApp.post('/createGame', (req, res) => { createGame(req, res) });
 httpApp.post('/quitGame', (req, res) => { quitGame(req, res) });
@@ -82,7 +80,6 @@ httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
 function playCard(req, res) { } // username or id, target
-function cardInfo(req, res) { } // card name or id
 const joinGame = require("./commands/joinGame.js")//username, joincode
 const createGame = require("./commands/createGame.js") // username
 const quitGame = require("./commands/quitGame.js")//username, joincode
