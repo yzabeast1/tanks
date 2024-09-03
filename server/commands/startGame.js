@@ -17,8 +17,7 @@ module.exports = function startGame(req, res) {
                     "no_shooting_player":"0",
                     "order":["${players.join('","')}"],
                     "players":{},
-                    "draw_pile":[],
-                    "discard_pile":[]
+                    "draw_pile":[]
                 }`);
                 newGame["draw_pile"] = shuffle(Array.from({ length: JSON.parse(data2).length }, (_, i) => i + 1))
                 for (var i = 0; i < players.length; i++) {
