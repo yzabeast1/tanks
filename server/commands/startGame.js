@@ -15,6 +15,7 @@ module.exports = function startGame(req, res) {
                     "event_count":1,
                     "shooting_allowed":true,
                     "no_shooting_player":"0",
+                    "card_played_this_turn":false,
                     "order":["${players.join('","')}"],
                     "players":{},
                     "draw_pile":[]

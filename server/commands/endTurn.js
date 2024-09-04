@@ -10,6 +10,7 @@ module.exports = function endTurn(req, res) {
             console.log(games[game]['turn'])
             games[game]['players'][games[game]['order'][games[game]['turn']]]['hand'].push(games[game]['draw_pile'][0])
             games[game]['draw_pile'].splice(0,1)
+            games[game]['card_played_this_turn']=false
             fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
         }
     })
