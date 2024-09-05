@@ -1,4 +1,5 @@
 fs = require('fs')
+const removeIfDead=require('./otherFunctions/removeIfDead.js')
 module.exports = function endTurn(req, res) {
     var game = req.headers.joincode
     var player = req.headers.username
@@ -13,6 +14,13 @@ module.exports = function endTurn(req, res) {
             games[game]['card_played_this_turn']=false
             games[game]['shooting_count']=1
             games[game]['event_count']=1
+            if(games[game]['landmine_in_play']){
+                if(Math.random()>.5){
+                    games[game]['landmine_in_play']=false
+                    games[game]['players'][games[game]['order'][games[game]['turn']]]['health']-=6
+                    removeIfDead(games,game,games[game]['order'][games[game]['turn']])
+                }
+            }
             fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
         }
     })

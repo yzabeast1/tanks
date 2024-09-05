@@ -16,6 +16,7 @@ module.exports = function startGame(req, res) {
                     "shooting_allowed":true,
                     "no_shooting_player":"0",
                     "card_played_this_turn":false,
+                    "landmine_in_play":false,
                     "order":["${players.join('","')}"],
                     "players":{},
                     "draw_pile":[]
