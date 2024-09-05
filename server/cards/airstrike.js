@@ -6,12 +6,15 @@ module.exports = function (req, res, cardid) {
         const game = req.headers.joincode
         const target = req.headers.target
         const games = JSON.parse(data)
-        games[game]['players'][target]['hand'] = []
-        games[game]['players'][username]['health'] -= 3
-        const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
-        games[game]['players'][username]['hand'].splice(handIndex, 1)
-        games = removeIfDead(games, game, target)
-        games[game]["card_played_this_turn"] = true
-        fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+        if (games[game]['event_count'] > 0) {
+            games[game]['event_count']--
+            games[game]['players'][target]['hand'] = []
+            games[game]['players'][username]['health'] -= 3
+            const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+            games[game]['players'][username]['hand'].splice(handIndex, 1)
+            games = removeIfDead(games, game, target)
+            games[game]["card_played_this_turn"] = true
+            fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+        }
     })
 }
