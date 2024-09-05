@@ -9,7 +9,7 @@ module.exports = function (req, res, cardid) {
         if (games[game]['shooting_count'] > 0) {
             games[game]['shooting_count']--
             games[game]['players'][target]['health'] -= 6
-            if(Math.random(0,1)>.5)games[game]['players'][username]['health']-=5
+            if(Math.random()>.5)games[game]['players'][username]['health']-=5
             const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
             games[game]['players'][username]['hand'].splice(handIndex, 1)
             games = removeIfDead(games, game, target)
