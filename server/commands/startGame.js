@@ -17,6 +17,7 @@ module.exports = function startGame(req, res) {
                     "no_shooting_player":"0",
                     "card_played_this_turn":false,
                     "landmine_in_play":false,
+                    "safety_shield_played":false,
                     "order":["${players.join('","')}"],
                     "players":{},
                     "draw_pile":[]
@@ -28,10 +29,10 @@ module.exports = function startGame(req, res) {
                         "hand":[],
                         "queued_cards":[]
                     }`);
-                    makePlayer.hand=newGame['draw_pile'].slice(i*4,(i+1)*4)
+                    makePlayer.hand = newGame['draw_pile'].slice(i * 4, (i + 1) * 4)
                     newGame['players'][players[i]] = makePlayer;
                 }
-                newGame['draw_pile'].splice(0,players.length*4)
+                newGame['draw_pile'].splice(0, players.length * 4)
                 games[game] = newGame;
                 fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err); });
                 console.log(`A new game has been started with ${players}`);
