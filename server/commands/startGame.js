@@ -11,7 +11,7 @@ module.exports = function startGame(req, res) {
                 var players = lobbies[game];
                 var newGame = JSON.parse(`{
                     "turn":0,
-                    "shot_count":1,
+                    "shooting_count":1,
                     "event_count":1,
                     "shooting_allowed":true,
                     "no_shooting_player":"0",
