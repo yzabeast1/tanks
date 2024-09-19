@@ -27,8 +27,8 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const https = require('https');
-const httpsPort = 3002;
-const httpPort = 3003;
+const httpsPort = 443;
+const httpPort = 80;
 
 try {
     const privateKey = fs.readFileSync('private.key', 'utf8');

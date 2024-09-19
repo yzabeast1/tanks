@@ -1,5 +1,5 @@
 fs = require('fs')
-const removeIfDead=require('./otherFunctions/removeIfDead.js')
+const removeIfDead = require("../otherFunctions/removeIfDead.js")
 module.exports = function endTurn(req, res) {
     var game = req.headers.joincode
     var player = req.headers.username
