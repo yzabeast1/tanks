@@ -20,6 +20,7 @@ function joinLobby() {
     })
         .then(response => {
             if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
+            document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + joincode
         })
         .catch(error => {
             console.warn('HTTPS failed, falling back to HTTP:', error);
@@ -30,6 +31,7 @@ function joinLobby() {
             })
                 .then(response => {
                     if (!response.ok) throw new Error('HTTP failed');
+                    document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + joincode
                 })
                 .catch(httpError => {
                     console.error('Both HTTPS and HTTP failed:', httpError);
@@ -57,6 +59,7 @@ function newGame() {
             console.log(response.headers.get('joincode'));
             joincode = response.headers.get('joincode')
             document.getElementById('joincode-input').value = joincode
+            document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
         })
         .catch(error => {
             console.warn('HTTPS failed, falling back to HTTP:', error);
@@ -70,6 +73,7 @@ function newGame() {
                     console.log(response.headers.get('joincode'));
                     joincode = response.headers.get('joincode')
                     document.getElementById('joincode-input').value = joincode
+                    document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
                 })
                 .catch(httpError => {
                     console.error('Both HTTPS and HTTP failed:', httpError);

@@ -2,6 +2,7 @@ const fs = require('fs')
 module.exports = function sendChat(req, res) {
     fs.readFile('chat.json', 'utf8', (err, data) => {
         var chat=JSON.parse(data)
+        if(!chat[req.headers.joincode])chat[req.headers.joincode]=[]
         var gamechat=chat[req.headers.joincode]
         console.log(gamechat)
         console.log(chat)

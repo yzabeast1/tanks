@@ -33,15 +33,27 @@
         </div>
     </div>
     <div class="lobby-screen" style="display:none">
+        <h2 id="lobby-show-code">JoinCode: </h2>
         <div class="lobby-players" id="lobby-players">
 
         </div>
         <button id="start-lobby">Start Game</button>
         <button id="leave-lobby">Leave Lobby</button>
+        <div class="lobby-chat-container" style="display:flex;">
+            <div class="lobby-chat-box" id="lobby-chat-box">
+                <!-- Messages will appear here -->
+            </div>
+            <br />
+            <div class="lobby-chat-input">
+                <input type="text" id="lobby-message-input" placeholder="Type your message..." autofocus>
+                <button id="lobby-send-button">Send</button>
+            </div>
+        </div>
     </div>
 
     <script src="chat.js"></script>
     <script src="lobby.js"></script>
+    <script src="lobby-chat.js"></script>
 </body>
 
 </html>
