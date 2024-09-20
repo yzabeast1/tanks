@@ -1,13 +1,17 @@
-const fs=require('fs')
-module.exports=function createGame(req,res){
-    const username=req.headers.username
-    const joincode=createGameID(6)
-    const users=[username]
-    fs.readFile('gameLobbies.json','utf8',(err,data)=>{
-        var lobbies=JSON.parse(data)
-        lobbies[joincode]=users
+const fs = require('fs')
+module.exports = function createGame(req, res) {
+    const username = req.headers.username
+    const joincode = createGameID(6)
+    const users = [username]
+    fs.readFile('gameLobbies.json', 'utf8', (err, data) => {
+        var lobbies = JSON.parse(data)
+        lobbies[joincode] = users
         console.log(lobbies)
-        fs.writeFile('gameLobbies.json',JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
+        fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
+        res.setHeader('Access-Control-Expose-Headers', 'joincode');
+        res.setHeader('joincode', joincode)
+        res.setHeader('Content-Type', 'text/plain');
+        res.end(joincode);
     })
 }
 function createGameID(length) {

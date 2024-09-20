@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat System</title>
     <link rel="stylesheet" href="css.css">
 </head>
+
 <body>
-    <div class="login-container">
-        <input type="text" id="joincode-input" placeholder="Enter join code" />
+    <div class="menu-screen">
         <input type="text" id="username-input" placeholder="Enter username" />
-        <button id="start-chat-button">Start Chat</button>
+        <br />
+        <div class="login-container">
+            <label>View Chat</label>
+            <input type="text" id="joincode-input" placeholder="Enter join code" />
+            <button id="start-chat-button">View Chat</button>
+        </div>
+        <div class="new-game">
+            <button id="new-game">Create New Game</button>
+        </div>
     </div>
 
     <div class="chat-container" style="display:none;">
@@ -22,7 +31,16 @@
             <button id="send-button">Send</button>
         </div>
     </div>
+    <div class="lobby-screen" style="display:none">
+        <div class="lobby-players" id="lobby-players">
+
+        </div>
+        <button id="start-lobby">Start Game</button>
+    </div>
 
     <script src="js.js"></script>
+    <script src="chat.js"></script>
+    <script src="lobby.js"></script>
 </body>
+
 </html>

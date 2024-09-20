@@ -53,6 +53,7 @@ try {
     httpsApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
     httpsApp.get('/getChat', (req, res) => { getChat(req, res) })
     httpsApp.post('/sendChat', (req, res) => { sendChat(req, res) })
+    httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
 }
 catch (e) {
     console.log(`Error with HTTPS\n ${e}`);
@@ -79,10 +80,11 @@ httpApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
 httpApp.get('/gameState', (req, res) => { gameState(req, res) })
 httpApp.get('/getChat', (req, res) => { getChat(req, res) })
 httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
+httpApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
-const cardInfo=require("./commands/cardInfo.js") // card id
-const playCard=require("./commands/playcard.js") // username, joincode, target, card
+const cardInfo = require("./commands/cardInfo.js") // card id
+const playCard = require("./commands/playcard.js") // username, joincode, target, card
 const joinGame = require("./commands/joinGame.js")//username, joincode
 const createGame = require("./commands/createGame.js") // username
 const quitGame = require("./commands/quitGame.js")//username, joincode
@@ -90,4 +92,5 @@ const checkGameStarted = require("./commands/checkGameStarted.js");//joincode
 const startGame = require("./commands/startGame.js")//joincode
 const gameState = require("./commands/gameState.js")//joincode
 const getChat = require("./commands/getChat.js")//joincode
-const sendChat=require("./commands/sendChat.js")//joincode, username
+const sendChat = require("./commands/sendChat.js")//joincode, username
+const lobbyState = require("./commands/lobbyState.js")//joincode

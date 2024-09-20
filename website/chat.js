@@ -1,7 +1,7 @@
 document.getElementById('start-chat-button').addEventListener('click', startChat);
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keydown', handleKeyPress);
-
+document.getElementById('start-chat-button').addEventListener('click', startChat);
 function startChat() {
     // Get the joincode and username from input fields
     joincode = document.getElementById('joincode-input').value;
@@ -13,7 +13,7 @@ function startChat() {
     }
 
     // Hide login form and show the chat box
-    document.querySelector('.login-container').style.display = 'none';
+    document.querySelector('.menu-screen').style.display = 'none';
     document.querySelector('.chat-container').style.display = 'flex';
 
     // Start fetching chat messages periodically
@@ -58,25 +58,25 @@ function sendMessageWithFallback(url, message) {
         method: 'POST',
         headers: headers
     })
-    .then(response => {
-        if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
-        return response.json();
-    })
-    .catch(error => {
-        console.warn('HTTPS failed, falling back to HTTP:', error);
-        // Retry with HTTP if HTTPS fails
-        fetch(url.replace('https://', 'http://'), {
-            method: 'POST',
-            headers: headers
-        })
         .then(response => {
-            if (!response.ok) throw new Error('HTTP failed');
+            if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
             return response.json();
         })
-        .catch(httpError => {
-            console.error('Both HTTPS and HTTP failed:', httpError);
+        .catch(error => {
+            console.warn('HTTPS failed, falling back to HTTP:', error);
+            // Retry with HTTP if HTTPS fails
+            fetch(url.replace('https://', 'http://'), {
+                method: 'POST',
+                headers: headers
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP failed');
+                    return response.json();
+                })
+                .catch(httpError => {
+                    console.error('Both HTTPS and HTTP failed:', httpError);
+                });
         });
-    });
 }
 
 function fetchChatMessages() {
@@ -97,7 +97,7 @@ function fetchChatMessages() {
 }
 
 function fetchWithFallback(url) {
-    const headers = { 'joincode':joincode }; // Add joincode header
+    const headers = { 'joincode': joincode }; // Add joincode header
 
     return fetch(url, { headers })
         .then(response => {
