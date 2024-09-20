@@ -6,7 +6,6 @@ module.exports = function createGame(req, res) {
     fs.readFile('gameLobbies.json', 'utf8', (err, data) => {
         var lobbies = JSON.parse(data)
         lobbies[joincode] = users
-        console.log(lobbies)
         fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
         res.setHeader('Access-Control-Expose-Headers', 'joincode');
         res.setHeader('joincode', joincode)

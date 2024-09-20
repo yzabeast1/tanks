@@ -54,6 +54,7 @@ try {
     httpsApp.get('/getChat', (req, res) => { getChat(req, res) })
     httpsApp.post('/sendChat', (req, res) => { sendChat(req, res) })
     httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
+    httpsApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
 }
 catch (e) {
     console.log(`Error with HTTPS\n ${e}`);
@@ -81,6 +82,7 @@ httpApp.get('/gameState', (req, res) => { gameState(req, res) })
 httpApp.get('/getChat', (req, res) => { getChat(req, res) })
 httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 httpApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
+httpApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
 const cardInfo = require("./commands/cardInfo.js") // card id
@@ -94,3 +96,4 @@ const gameState = require("./commands/gameState.js")//joincode
 const getChat = require("./commands/getChat.js")//joincode
 const sendChat = require("./commands/sendChat.js")//joincode, username
 const lobbyState = require("./commands/lobbyState.js")//joincode
+const leaveLobby = require("./commands/leaveLobby.js")//username,joincode

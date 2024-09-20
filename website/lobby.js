@@ -1,11 +1,12 @@
 document.getElementById('new-game').addEventListener('click', newGame);
 document.getElementById('join-lobby').addEventListener('click', joinLobby);
-
+document.getElementById('leave-lobby').addEventListener('click', leaveLobby);
+var lobbyPlayersInterval = 0
 const serverip = "127.0.0.1"
 
 function joinLobby() {
     document.querySelector('.menu-screen').style.display = 'none'
-    document.querySelector('.lobby-screen').style.display = 'flex'
+    document.querySelector('.lobby-screen').style.display = 'block'
     username = document.getElementById('username-input').value;
     joincode = document.getElementById('joincode-input').value;
     const headers = {
@@ -34,12 +35,12 @@ function joinLobby() {
                     console.error('Both HTTPS and HTTP failed:', httpError);
                 });
         });
-    setInterval(lobbyPlayers, 3000);
+    lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
     lobbyPlayers();
 }
 function newGame() {
     document.querySelector('.menu-screen').style.display = 'none'
-    document.querySelector('.lobby-screen').style.display = 'flex'
+    document.querySelector('.lobby-screen').style.display = 'block'
     username = document.getElementById('username-input').value;
     const headers = {
         'Content-Type': 'application/json',
@@ -55,6 +56,7 @@ function newGame() {
             if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
             console.log(response.headers.get('joincode'));
             joincode = response.headers.get('joincode')
+            document.getElementById('joincode-input').value = joincode
         })
         .catch(error => {
             console.warn('HTTPS failed, falling back to HTTP:', error);
@@ -67,12 +69,13 @@ function newGame() {
                     if (!response.ok) throw new Error('HTTP failed');
                     console.log(response.headers.get('joincode'));
                     joincode = response.headers.get('joincode')
+                    document.getElementById('joincode-input').value = joincode
                 })
                 .catch(httpError => {
                     console.error('Both HTTPS and HTTP failed:', httpError);
                 });
         });
-    setInterval(lobbyPlayers, 3000);
+    lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
     lobbyPlayers();
 }
 function lobbyPlayers() {
@@ -88,7 +91,7 @@ function lobbyPlayers() {
             }
         })
         .catch(error => {
-            console.error('Error fetching chat messages:', error);
+            console.error('Error fetching lobby players:', error);
         });
 }
 function fetchWithFallback(url) {
@@ -120,4 +123,46 @@ function addLobbyPlayer(player, className) {
 
     const playerList = document.getElementById('lobby-players');
     playerList.appendChild(messageElement);
+}
+function leaveLobby() {
+    username = document.getElementById('username-input').value;
+    joincode = document.getElementById('joincode-input').value;
+    const headers = {
+        'Content-Type': 'application/json',
+        'username': username,
+        'joincode': joincode
+    };
+    fetch(`https://${serverip}/leaveLobby`, {
+        method: 'POST',
+        headers: headers
+    })
+        .then(response => {
+            if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
+            else {
+                document.querySelector('.menu-screen').style.display = 'block'
+                document.querySelector('.lobby-screen').style.display = 'none'
+                document.getElementById('joincode-input').value = ''
+                clearInterval(lobbyPlayersInterval)
+            }
+        })
+        .catch(error => {
+            console.warn('HTTPS failed, falling back to HTTP:', error);
+            // Retry with HTTP if HTTPS fails
+            fetch(`http://${serverip}/leaveLobby`, {
+                method: 'POST',
+                headers: headers
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP failed');
+                    else {
+                        document.querySelector('.menu-screen').style.display = 'block'
+                        document.querySelector('.lobby-screen').style.display = 'none'
+                        document.getElementById('joincode-input').value = ''
+                        clearInterval(lobbyPlayersInterval)
+                    }
+                })
+                .catch(httpError => {
+                    console.error('Both HTTPS and HTTP failed:', httpError);
+                });
+        });
 }
