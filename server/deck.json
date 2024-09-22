@@ -1,510 +1,595 @@
 [
     {
         "name": "repair",
+        "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
         "code-location": "cards/repair.js"
     },
     {
         "name": "repair",
+        "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
         "code-location": "cards/repair.js"
     },
     {
         "name": "repair",
+        "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
         "code-location": "cards/repair.js"
     },
     {
         "name": "repair",
+        "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
         "code-location": "cards/repair.js"
     },
     {
         "name": "radar",
+        "id": "radar",
         "type": "support",
         "image-location": "cards/radar.png",
         "code-location": "cards/radar.js"
     },
     {
         "name": "radar",
+        "id": "radar",
         "type": "support",
         "image-location": "cards/radar.png",
         "code-location": "cards/radar.js"
     },
     {
         "name": "repair kit",
+        "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
         "code-location": "cards/repair-kit.js"
     },
     {
         "name": "repair kit",
+        "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
         "code-location": "cards/repair-kit.js"
     },
     {
         "name": "repair kit",
+        "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
         "code-location": "cards/repair-kit.js"
     },
     {
         "name": "armor",
+        "id": "armor",
         "type": "support",
         "image-location": "cards/armor.png",
         "code-location": "cards/armor.js"
     },
     {
         "name": "armor",
+        "id": "armor",
         "type": "support",
         "image-location": "cards/armor.png",
         "code-location": "cards/armor.js"
     },
     {
         "name": "armor",
+        "id": "armor",
         "type": "support",
         "image-location": "cards/armor.png",
         "code-location": "cards/armor.js"
     },
     {
         "name": "armor",
+        "id": "armor",
         "type": "support",
         "image-location": "cards/armor.png",
         "code-location": "cards/armor.js"
     },
     {
         "name": "wasteful",
+        "id": "wasteful",
         "type": "support",
         "image-location": "cards/wasteful.png",
         "code-location": "cards/wasteful.js"
     },
     {
         "name": "wasteful",
+        "id": "wasteful",
         "type": "support",
         "image-location": "cards/wasteful.png",
         "code-location": "cards/wasteful.js"
     },
     {
         "name": "cold war",
+        "id": "cold-war",
         "type": "support",
         "image-location": "cards/cold-war.png",
         "code-location": "cards/cold-war.js"
     },
     {
         "name": "cold war",
+        "id": "cold-war",
         "type": "support",
         "image-location": "cards/cold-war.png",
         "code-location": "cards/cold-war.js"
     },
     {
         "name": "last stand",
+        "id": "last-stand",
         "type": "support",
         "image-location": "cards/last-stand.png",
         "code-location": "cards/last-stand.js"
     },
     {
         "name": "safety shield",
+        "id": "safety-shield",
         "type": "support",
         "image-location": "cards/safety-shield.png",
         "code-location": "cards/safety-shield.js"
     },
     {
         "name": "safety shield",
+        "id": "safety-shield",
         "type": "support",
         "image-location": "cards/safety-shield.png",
         "code-location": "cards/safety-shield.js"
     },
     {
         "name": "steal",
+        "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
         "code-location": "cards/steal.js"
     },
     {
         "name": "steal",
+        "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
         "code-location": "cards/steal.js"
     },
     {
         "name": "steal",
+        "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
         "code-location": "cards/steal.js"
     },
     {
         "name": "steal",
+        "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
         "code-location": "cards/steal.js"
     },
     {
         "name": "steal",
+        "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
         "code-location": "cards/steal.js"
     },
     {
         "name": "draw 2",
+        "id": "draw-2",
         "type": "plus",
         "image-location": "cards/draw-2.png",
         "code-location": "cards/draw-2.js"
     },
     {
         "name": "draw 2",
+        "id": "draw-2",
         "type": "plus",
         "image-location": "cards/draw-2.png",
         "code-location": "cards/draw-2.js"
     },
     {
         "name": "helpful hand",
+        "id": "helpful-hand",
         "type": "plus",
         "image-location": "cards/helpful-hand.png",
         "code-location": "cards/helpful-hand.js"
     },
     {
         "name": "helpful hand",
+        "id": "helpful-hand",
         "type": "plus",
         "image-location": "cards/helpful-hand.png",
         "code-location": "cards/helpful-hand.js"
     },
     {
         "name": "crack",
+        "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
         "code-location": "cards/crack.js"
     },
     {
         "name": "crack",
+        "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
         "code-location": "cards/crack.js"
     },
     {
         "name": "crack",
+        "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
         "code-location": "cards/crack.js"
     },
     {
         "name": "crack",
+        "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
         "code-location": "cards/crack.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "dent",
+        "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
         "code-location": "cards/dent.js"
     },
     {
         "name": "stolen parts",
+        "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
         "code-location": "cards/stolen-parts.js"
     },
     {
         "name": "stolen parts",
+        "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
         "code-location": "cards/stolen-parts.js"
     },
     {
         "name": "stolen parts",
+        "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
         "code-location": "cards/stolen-parts.js"
     },
     {
         "name": "distractor missile",
+        "id": "distractor-missile",
         "type": "shooting",
         "image-location": "cards/distractor-missile.png",
         "code-location": "cards/distractor-missile.js"
     },
     {
         "name": "distractor missile",
+        "id": "distractor-missile",
         "type": "shooting",
         "image-location": "cards/distractor-missile.png",
         "code-location": "cards/distractor-missile.js"
     },
     {
         "name": "distractor missile",
+        "id": "distractor-missile",
         "type": "shooting",
         "image-location": "cards/distractor-missile.png",
         "code-location": "cards/distractor-missile.js"
     },
     {
         "name": "distractor missile",
+        "id": "distractor-missile",
         "type": "shooting",
         "image-location": "cards/distractor-missile.png",
         "code-location": "cards/distractor-missile.js"
     },
     {
         "name": "distractor missile",
+        "id": "distractor-missile",
         "type": "shooting",
         "image-location": "cards/distractor-missile.png",
         "code-location": "cards/distractor-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "aimed missile",
+        "id": "aimed-missile",
         "type": "shooting",
         "image-location": "cards/aimed-missile.png",
         "code-location": "cards/aimed-missile.js"
     },
     {
         "name": "locked on",
+        "id": "locked-on",
         "type": "shooting",
         "image-location": "cards/locked-on.png",
         "code-location": "cards/locked-on.js"
     },
     {
         "name": "locked on",
+        "id": "locked-on",
         "type": "shooting",
         "image-location": "cards/locked-on.png",
         "code-location": "cards/locked-on.js"
     },
     {
         "name": "locked on",
+        "id": "locked-on",
         "type": "shooting",
         "image-location": "cards/locked-on.png",
         "code-location": "cards/locked-on.js"
     },
     {
         "name": "locked on",
+        "id": "locked-on",
         "type": "shooting",
         "image-location": "cards/locked-on.png",
         "code-location": "cards/locked-on.js"
     },
     {
         "name": "multistrike",
+        "id": "multistrike",
         "type": "shooting",
         "image-location": "cards/multistrike.png",
         "code-location": "cards/multistrike.js"
     },
     {
         "name": "big bomb",
+        "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
         "code-location": "cards/big-bomb.js"
     },
     {
         "name": "big bomb",
+        "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
         "code-location": "cards/big-bomb.js"
     },
     {
         "name": "big bomb",
+        "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
         "code-location": "cards/big-bomb.js"
     },
     {
         "name": "big bomb",
+        "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
         "code-location": "cards/big-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "small bomb",
+        "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
         "code-location": "cards/small-bomb.js"
     },
     {
         "name": "landmine",
+        "id": "landmine",
         "type": "shooting",
         "image-location": "cards/landmine.png",
         "code-location": "cards/landmine.js"
     },
     {
         "name": "nuke",
+        "id": "nuke",
         "type": "shooting",
         "image-location": "cards/nuke.png",
         "code-location": "cards/nuke.js"
     },
     {
         "name": "no shooting",
+        "id": "no-shooting",
         "type": "event",
         "image-location": "cards/no-shooting.png",
         "code-location": "cards/no-shooting.js"
     },
     {
         "name": "no shooting",
+        "id": "no-shooting",
         "type": "event",
         "image-location": "cards/no-shooting.png",
         "code-location": "cards/no-shooting.js"
     },
     {
         "name": "more ammo",
+        "id": "more-ammo",
         "type": "event",
         "image-location": "cards/more-ammo.png",
         "code-location": "cards/more-ammo.js"
     },
     {
         "name": "more ammo",
+        "id": "more-ammo",
         "type": "event",
         "image-location": "cards/more-ammo.png",
         "code-location": "cards/more-ammo.js"
     },
     {
         "name": "new model",
+        "id": "new-model",
         "type": "event",
         "image-location": "cards/new-model.png",
         "code-location": "cards/new-model.js"
     },
     {
         "name": "new model",
+        "id": "new-model",
         "type": "event",
         "image-location": "cards/new-model.png",
         "code-location": "cards/new-model.js"
     },
     {
         "name": "airstrike",
+        "id": "airstrike",
         "type": "event",
         "image-location": "cards/airstrike.png",
         "code-location": "cards/airstrike.js"
     },
     {
         "name": "spray",
+        "id": "spray",
         "type": "event",
         "image-location": "cards/spray.png",
         "code-location": "cards/spray.js"
     },
     {
         "name": "lottery",
+        "id": "lottery",
         "type": "event",
         "image-location": "cards/lottery.png",
         "code-location": "cards/lottery.js"
