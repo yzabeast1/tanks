@@ -6,11 +6,6 @@ function lobbyStartChat() {
     joincode = document.getElementById('joincode-input').value;
     username = document.getElementById('username-input').value;
 
-    if (joincode.trim() === '' || username.trim() === '') {
-        alert('Please enter both a join code and username');
-        return;
-    }
-
     // Start fetching chat messages periodically
     lobbyChatInterval=setInterval(lobbyFetchChatMessages, 3000);
     lobbyFetchChatMessages();
@@ -23,7 +18,11 @@ function lobbySendMessage() {
     if (message.trim() === "") return; // Prevent sending empty messages
 
     // Add the message to the chat box locally
-    lobbyAddMessageToChatBox(`${username}: ${message}`, 'lobby-user-message');
+    if(document.getElementById('lobby-chat-timestamps').checked){
+        var now=new Date(Date.now())
+        lobbyAddMessageToChatBox(`[${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ${username}: ${message}`, 'lobby-user-message')
+    }
+    else lobbyAddMessageToChatBox(`${username}: ${message}`, 'lobby-user-message');
 
     // Send the message to the server with headers
     lobbySendMessageWithFallback('https://127.0.0.1/sendChat', message);
@@ -80,7 +79,11 @@ function lobbyFetchChatMessages() {
             if (data && data.length > 0) {
                 lobbyClearChatBox();
                 data.forEach(message => {
-                    lobbyAddMessageToChatBox(`${message.sender}: ${message.text}`, 'lobby-server-message');
+                    if(document.getElementById('lobby-chat-timestamps').checked){
+                        var time=new Date(message['time-sent'])
+                        lobbyAddMessageToChatBox(`[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}] ${message.sender}: ${message.text}`, 'lobby-server-message')
+                    }
+                    else lobbyAddMessageToChatBox(`${message.sender}: ${message.text}`, 'lobby-server-message');
                 });
             } else {
                 console.warn('No messages found for this joincode.');

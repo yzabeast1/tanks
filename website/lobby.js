@@ -39,6 +39,7 @@ function joinLobby() {
         });
     lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
     lobbyPlayers();
+    lobbyStartChat();
 }
 function newGame() {
     document.querySelector('.menu-screen').style.display = 'none'
@@ -81,6 +82,7 @@ function newGame() {
         });
     lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
     lobbyPlayers();
+    lobbyStartChat();
 }
 function lobbyPlayers() {
     fetchWithFallback('https://127.0.0.1/lobbyState')
