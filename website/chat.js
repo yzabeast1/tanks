@@ -2,6 +2,7 @@ document.getElementById('start-chat-button').addEventListener('click', startChat
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keydown', handleKeyPress);
 document.getElementById('start-chat-button').addEventListener('click', startChat);
+var chatCooldown=1000;
 function startChat() {
     // Get the joincode and username from input fields
     joincode = document.getElementById('joincode-input').value;
@@ -17,7 +18,7 @@ function startChat() {
     document.querySelector('.chat-container').style.display = 'flex';
 
     // Start fetching chat messages periodically
-    setInterval(fetchChatMessages, 3000);
+    setInterval(fetchChatMessages, chatCooldown);
     fetchChatMessages();
 }
 
@@ -29,9 +30,15 @@ function sendMessage() {
 
     // Add the message to the chat box locally
     addMessageToChatBox(`${username}: ${message}`, 'user-message');
+    const headers = {
+        'Content-Type': 'application/json',
+        'joincode': joincode,  // Use dynamic joincode
+        'username': username,  // Use dynamic username
+        'text': message
+    };
 
     // Send the message to the server with headers
-    sendMessageWithFallback('https://127.0.0.1/sendChat', message);
+    postWithFallback(`https://${serverip}/sendChat`, headers);
 
     // Clear the input box after sending the message
     input.value = '';
@@ -45,42 +52,9 @@ function handleKeyPress(event) {
     }
 }
 
-function sendMessageWithFallback(url, message) {
-    const headers = {
-        'Content-Type': 'application/json',
-        'joincode': joincode,  // Use dynamic joincode
-        'username': username,  // Use dynamic username
-        'text': message
-    };
-
-    // Try sending the message using HTTPS
-    fetch(url, {
-        method: 'POST',
-        headers: headers
-    })
-        .then(response => {
-            if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(url.replace('https://', 'http://'), {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
-        });
-}
-
 function fetchChatMessages() {
-    fetchWithFallback('https://127.0.0.1/getChat')
+    const headers = { 'joincode': joincode }; // Add joincode header
+    fetchWithFallback(`https://${serverip}/getChat`)
         .then(data => {
             if (data && data.length > 0) {
                 clearChatBox();
@@ -93,25 +67,6 @@ function fetchChatMessages() {
         })
         .catch(error => {
             console.error('Error fetching chat messages:', error);
-        });
-}
-
-function fetchWithFallback(url) {
-    const headers = { 'joincode': joincode }; // Add joincode header
-
-    return fetch(url, { headers })
-        .then(response => {
-            if (!response.ok) throw new Error('HTTPS failed');
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            return fetch(url.replace('https://', 'http://'), { headers })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                });
         });
 }
 

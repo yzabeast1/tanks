@@ -1,13 +1,14 @@
 document.getElementById('lobby-send-button').addEventListener('click', lobbySendMessage);
 document.getElementById('lobby-message-input').addEventListener('keydown', lobbyHandleKeyPress);
-lobbyChatInterval=0;
+var lobbyChatCooldown=1000;
+var lobbyChatInterval=0;
 function lobbyStartChat() {
     // Get the joincode and username from input fields
     joincode = document.getElementById('joincode-input').value;
     username = document.getElementById('username-input').value;
 
     // Start fetching chat messages periodically
-    lobbyChatInterval=setInterval(lobbyFetchChatMessages, 3000);
+    lobbyChatInterval=setInterval(lobbyFetchChatMessages, lobbyChatCooldown);
     lobbyFetchChatMessages();
 }
 
@@ -24,8 +25,14 @@ function lobbySendMessage() {
     }
     else lobbyAddMessageToChatBox(`${username}: ${message}`, 'lobby-user-message');
 
+    const headers = {
+        'Content-Type': 'application/json',
+        'joincode': joincode,  // Use dynamic joincode
+        'username': username,  // Use dynamic username
+        'text': message
+    };
     // Send the message to the server with headers
-    lobbySendMessageWithFallback('https://127.0.0.1/sendChat', message);
+    postWithFallback(`https://${serverip}/sendChat`, headers);
 
     // Clear the input box after sending the message
     input.value = '';
@@ -39,42 +46,9 @@ function lobbyHandleKeyPress(event) {
     }
 }
 
-function lobbySendMessageWithFallback(url, message) {
-    const headers = {
-        'Content-Type': 'application/json',
-        'joincode': joincode,  // Use dynamic joincode
-        'username': username,  // Use dynamic username
-        'text': message
-    };
-
-    // Try sending the message using HTTPS
-    fetch(url, {
-        method: 'POST',
-        headers: headers
-    })
-        .then(response => {
-            if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(url.replace('https://', 'http://'), {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
-        });
-}
-
 function lobbyFetchChatMessages() {
-    fetchWithFallback('https://127.0.0.1/getChat')
+    const headers = { 'joincode': joincode }; // Add joincode header
+    fetchWithFallback(`https://${serverip}/getChat`,headers)
         .then(data => {
             if (data && data.length > 0) {
                 lobbyClearChatBox();
@@ -94,24 +68,6 @@ function lobbyFetchChatMessages() {
         });
 }
 
-function fetchWithFallback(url) {
-    const headers = { 'joincode': joincode }; // Add joincode header
-
-    return fetch(url, { headers })
-        .then(response => {
-            if (!response.ok) throw new Error('HTTPS failed');
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            return fetch(url.replace('https://', 'http://'), { headers })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                });
-        });
-}
 
 // Helper function to append a message to the chat box
 function lobbyAddMessageToChatBox(message, className) {

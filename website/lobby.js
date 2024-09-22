@@ -1,9 +1,9 @@
 document.getElementById('new-game').addEventListener('click', newGame);
 document.getElementById('join-lobby').addEventListener('click', joinLobby);
 document.getElementById('leave-lobby').addEventListener('click', leaveLobby);
+var playersInLobbyCooldown=1000;
 var lobbyPlayersInterval = 0
-const serverip = "127.0.0.1"
-
+const serverip='127.0.0.1'
 function joinLobby() {
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
@@ -37,7 +37,7 @@ function joinLobby() {
                     console.error('Both HTTPS and HTTP failed:', httpError);
                 });
         });
-    lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
+    lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
     lobbyPlayers();
     lobbyStartChat();
 }
@@ -57,7 +57,6 @@ function newGame() {
     })
         .then(response => {
             if (!response.ok) throw new Error('HTTPS failed'); // Handle HTTP errors
-            console.log(response.headers.get('joincode'));
             joincode = response.headers.get('joincode')
             document.getElementById('joincode-input').value = joincode
             document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
@@ -80,12 +79,14 @@ function newGame() {
                     console.error('Both HTTPS and HTTP failed:', httpError);
                 });
         });
-    lobbyPlayersInterval = setInterval(lobbyPlayers, 3000);
+    lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
+    addLobbyPlayer(username,'server-messsage')
     lobbyPlayers();
     lobbyStartChat();
 }
 function lobbyPlayers() {
-    fetchWithFallback('https://127.0.0.1/lobbyState')
+    const headers = { 'joincode': joincode }; // Add joincode header
+    fetchWithFallback(`https://${serverip}/lobbyState`,headers)
         .then(data => {
             if (data && data.length > 0) {
                 clearLobbyPlayers();
@@ -98,24 +99,6 @@ function lobbyPlayers() {
         })
         .catch(error => {
             console.error('Error fetching lobby players:', error);
-        });
-}
-function fetchWithFallback(url) {
-    const headers = { 'joincode': joincode }; // Add joincode header
-
-    return fetch(url, { headers })
-        .then(response => {
-            if (!response.ok) throw new Error('HTTPS failed');
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            return fetch(url.replace('https://', 'http://'), { headers })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                });
         });
 }
 function clearLobbyPlayers() {
