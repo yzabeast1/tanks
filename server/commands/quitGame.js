@@ -6,7 +6,6 @@ module.exports=function quitGame(req,res){
         var games=JSON.parse(data)
         var game=games[joincode]
         delete game['players'][username]
-        console.log(game)
         games[joincode]=game
         fs.writeFile('games.json',JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
     })

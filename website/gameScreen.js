@@ -26,6 +26,7 @@ async function fetchGameState() {
 
 // Render the game
 function renderGame() {
+    document.getElementById('turn').innerHTML=gameData['order'][gameData['turn']]+"'s Turn"
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML = '';  // Clear the game div
 
