@@ -51,3 +51,56 @@ body {
 #send-button:hover {
     background-color: #218838;
 }
+
+.player {
+    margin-bottom: 20px;
+}
+.hand {
+    display: flex;
+    gap: 10px;
+}
+.card {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    background-size: cover;
+    cursor: pointer;
+}
+.my-hand .card {
+    background-color: lightyellow;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Modal styles for zooming */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#modal img {
+    height: 100%;
+    width: auto;  /* Auto width with 100% height */
+}
+#modal .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+}

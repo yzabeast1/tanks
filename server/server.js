@@ -139,3 +139,18 @@ deck.forEach(card => {
     });
   });
 });
+httpApp.get('/cardImage/back',(req,res)=>{
+        // Path to the image file from deck.json
+        const imagePath = path.join(__dirname, "cards/back.png");
+
+        // Check if the image exists
+        fs.access(imagePath, fs.constants.F_OK, (err) => {
+          if (err) {
+            return res.status(404).send('Image not found');
+          }
+    
+          // Stream the image as a response
+          res.sendFile(imagePath);
+        });
+    
+})

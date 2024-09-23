@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat System</title>
+    <title>TANKS</title>
     <link rel="stylesheet" href="css.css">
 </head>
 
@@ -37,7 +37,7 @@
         <div class="lobby-players" id="lobby-players">
 
         </div>
-        <button id="start-lobby">Start Game</button>
+        <button id="start-game">Start Game</button>
         <button id="leave-lobby">Leave Lobby</button>
         <br>
         <input type="checkbox" id="lobby-chat-timestamps" name="lobby-chat-timestamps" value="lobby-chat-timestamps">
@@ -58,11 +58,21 @@
         <label for="show-deck-checkbox">Show Deck</label>
         <div class="show-deck" id="show-deck" style="display:none"></div>
     </div>
+    <div class="game-screen" style="display:none;">
+        <div id="game"></div>
+
+        <!-- Modal for zooming in on card -->
+        <div id="modal">
+            <button class="close" onclick="closeModal()">X</button>
+            <img id="modalImage" src="" alt="Zoomed Card">
+        </div>
+    </div>
 
     <script src="chat.js"></script>
     <script src="lobby.js"></script>
-    <script src="lobby-chat.js"></script>
+    <script src="lobbyChat.js"></script>
     <script src="networkFunctions.js"></script>
+    <script src="gameScreen.js"></script>
 </body>
 
 </html>
