@@ -1,0 +1,198 @@
+[
+    {
+        "name": "distractor missile",
+        "id": "distractor-missile",
+        "type": "shooting",
+        "image-location": "cards/distractor-missile.png",
+        "code-location": "cards/distractor-missile.js"
+    },
+    {
+        "name": "distractor missile",
+        "id": "distractor-missile",
+        "type": "shooting",
+        "image-location": "cards/distractor-missile.png",
+        "code-location": "cards/distractor-missile.js"
+    },
+    {
+        "name": "distractor missile",
+        "id": "distractor-missile",
+        "type": "shooting",
+        "image-location": "cards/distractor-missile.png",
+        "code-location": "cards/distractor-missile.js"
+    },
+    {
+        "name": "distractor missile",
+        "id": "distractor-missile",
+        "type": "shooting",
+        "image-location": "cards/distractor-missile.png",
+        "code-location": "cards/distractor-missile.js"
+    },
+    {
+        "name": "distractor missile",
+        "id": "distractor-missile",
+        "type": "shooting",
+        "image-location": "cards/distractor-missile.png",
+        "code-location": "cards/distractor-missile.js"
+    },
+    {
+        "name": "radar",
+        "id": "radar",
+        "type": "support",
+        "image-location": "cards/radar.png",
+        "code-location": "cards/radar.js"
+    },
+    {
+        "name": "radar",
+        "id": "radar",
+        "type": "support",
+        "image-location": "cards/radar.png",
+        "code-location": "cards/radar.js"
+    },
+    {
+        "name": "armor",
+        "id": "armor",
+        "type": "support",
+        "image-location": "cards/armor.png",
+        "code-location": "cards/armor.js"
+    },
+    {
+        "name": "armor",
+        "id": "armor",
+        "type": "support",
+        "image-location": "cards/armor.png",
+        "code-location": "cards/armor.js"
+    },
+    {
+        "name": "armor",
+        "id": "armor",
+        "type": "support",
+        "image-location": "cards/armor.png",
+        "code-location": "cards/armor.js"
+    },
+    {
+        "name": "armor",
+        "id": "armor",
+        "type": "support",
+        "image-location": "cards/armor.png",
+        "code-location": "cards/armor.js"
+    },
+    {
+        "name": "wasteful",
+        "id": "wasteful",
+        "type": "support",
+        "image-location": "cards/wasteful.png",
+        "code-location": "cards/wasteful.js"
+    },
+    {
+        "name": "wasteful",
+        "id": "wasteful",
+        "type": "support",
+        "image-location": "cards/wasteful.png",
+        "code-location": "cards/wasteful.js"
+    },
+    {
+        "name": "cold war",
+        "id": "cold-war",
+        "type": "support",
+        "image-location": "cards/cold-war.png",
+        "code-location": "cards/cold-war.js"
+    },
+    {
+        "name": "cold war",
+        "id": "cold-war",
+        "type": "support",
+        "image-location": "cards/cold-war.png",
+        "code-location": "cards/cold-war.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js"
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js"
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js"
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js"
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js"
+    },
+    {
+        "name": "multistrike",
+        "id": "multistrike",
+        "type": "shooting",
+        "image-location": "cards/multistrike.png",
+        "code-location": "cards/multistrike.js"
+    }
+]

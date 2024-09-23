@@ -4,10 +4,13 @@ document.getElementById('show-deck-checkbox').addEventListener('click', toggleDe
 document.getElementById('leave-lobby').addEventListener('click', leaveLobby);
 var playersInLobbyCooldown = 1000;
 var lobbyPlayersInterval = 0
+var lobbyStartedCheckCoooldown = 1000
+var lobbyStartedCheckInterval = 0;
 const serverip = '127.0.0.1'
 function joinLobby() {
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
+    document.querySelector('.start-game').style.display = 'none'
     username = document.getElementById('username-input').value;
     joincode = document.getElementById('joincode-input').value;
     const headers = {
@@ -39,6 +42,7 @@ function joinLobby() {
                 });
         });
     lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
+    lobbyStartedCheckInterval = setInterval(lobbyStartedCheck, lobbyStartedCheckCoooldown)
     lobbyPlayers();
     lobbyStartChat();
 }
@@ -183,4 +187,23 @@ function addCardToDeck() {
     image.className = "deck-image"
     const deck = document.getElementById('show-deck')
     deck.appendChild(image)
+}
+function lobbyStartedCheck() {
+    fetch(`http://${serverip}/checkGameStarted`, {
+        method: 'GET',
+        headers: {
+            'joincode': joincode
+        }
+    })
+        .then(response => response.text())  // Expect a simple "yes" or "no"
+        .then(data => {
+            if (data === "yes") {
+                joinStartedGame();
+            } else {
+                console.log("Game has not started, waiting...");
+            }
+        })
+        .catch(error => {
+            console.error("Error checking game status:", error);
+        });
 }

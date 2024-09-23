@@ -1,8 +1,7 @@
-document.getElementById('start-game').addEventListener('click',startGame);
+document.getElementById('start-game').addEventListener('click', startGame);
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 
-const currentUser = "user";  // The current player
 
 // Fetch the deck from the server
 async function fetchDeck() {
@@ -17,7 +16,7 @@ async function fetchDeck() {
 // Fetch the game state from the server every second
 async function fetchGameState() {
     try {
-        const response = await fetch(`http://${serverip}/gameState`,{headers:{joincode:joincode}});
+        const response = await fetch(`http://${serverip}/gameState`, { headers: { joincode: joincode } });
         gameData = await response.json();
         renderGame();  // Render the game whenever the game state is updated
     } catch (error) {
@@ -30,8 +29,12 @@ function renderGame() {
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML = '';  // Clear the game div
 
-    for (const player in gameData.players) {
-        const playerData = gameData.players[player];
+    // Move the current player's data to the top of the player list for rendering
+    const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+
+    // Render players' hands
+    for (const player in orderedPlayers) {
+        const playerData = orderedPlayers[player];
         const playerDiv = document.createElement('div');
         playerDiv.classList.add('player');
         
@@ -46,9 +49,8 @@ function renderGame() {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
-            // Show cards for the current user, show back for others
             const img = document.createElement('img');
-            if (player === currentUser) {
+            if (player === username) {
                 img.src = `http://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
                 img.alt = deck[cardIndex].name;
                 cardDiv.classList.add('my-hand');
@@ -70,6 +72,8 @@ function renderGame() {
     }
 }
 
+
+
 // Open modal to zoom in on card
 function openModal(imageSrc) {
     const modal = document.getElementById('modal');
@@ -90,11 +94,17 @@ document.addEventListener('keydown', (event) => {
         closeModal();
     }
 });
-function startGame(){
-    document.querySelector('.lobby-screen').style.display='none'
-    document.querySelector('.game-screen').style.display='block'
-    postWithFallbackNoJSON(`https://${serverip}/startGame`,{joincode:joincode})
+function startGame() {
+    postWithFallbackNoJSON(`https://${serverip}/startGame`, { joincode: joincode })
+    joinStartedGame();
+}
+function joinStartedGame() {
+    document.querySelector('.lobby-screen').style.display = 'none'
+    document.querySelector('.game-screen').style.display = 'block'
+    clearInterval(lobbyChatInterval)
+    clearInterval(lobbyPlayersInterval)
+    clearInterval(lobbyStartedCheckInterval)
     fetchDeck();
-    //setInterval(fetchGameState, 1000);
-    fetchGameState
+    setInterval(fetchGameState, 1000);
+    fetchGameState()
 }
