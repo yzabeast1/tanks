@@ -4,8 +4,8 @@ module.exports = function (req, res, cardid) {
         fs.readFile('deck.json', 'utf8', (err1, data1) => {
             const username = req.headers.username
             const game = req.headers.joincode
-            const discardone = req.headers.discardone
-            const discardtwo = req.headers.discardtwo
+            const discardone = req.headers.discardcard
+            const discardtwo = req.headers.discardcardtwo
             var games = JSON.parse(data)
             var deck = JSON.parse(data1)
             if (games[game]['event_count'] > 0) {

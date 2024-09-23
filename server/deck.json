@@ -4,398 +4,666 @@
         "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
-        "code-location": "cards/repair.js"
+        "code-location": "cards/repair.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair",
         "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
-        "code-location": "cards/repair.js"
+        "code-location": "cards/repair.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair",
         "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
-        "code-location": "cards/repair.js"
+        "code-location": "cards/repair.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair",
         "id": "repair",
         "type": "support",
         "image-location": "cards/repair.png",
-        "code-location": "cards/repair.js"
+        "code-location": "cards/repair.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair kit",
         "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
-        "code-location": "cards/repair-kit.js"
+        "code-location": "cards/repair-kit.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair kit",
         "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
-        "code-location": "cards/repair-kit.js"
+        "code-location": "cards/repair-kit.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "repair kit",
         "id": "repair-kit",
         "type": "support",
         "image-location": "cards/repair-kit.png",
-        "code-location": "cards/repair-kit.js"
+        "code-location": "cards/repair-kit.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "last stand",
         "id": "last-stand",
         "type": "support",
         "image-location": "cards/last-stand.png",
-        "code-location": "cards/last-stand.js"
+        "code-location": "cards/last-stand.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "safety shield",
         "id": "safety-shield",
         "type": "support",
         "image-location": "cards/safety-shield.png",
-        "code-location": "cards/safety-shield.js"
+        "code-location": "cards/safety-shield.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "safety shield",
         "id": "safety-shield",
         "type": "support",
         "image-location": "cards/safety-shield.png",
-        "code-location": "cards/safety-shield.js"
+        "code-location": "cards/safety-shield.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "steal",
         "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
-        "code-location": "cards/steal.js"
+        "code-location": "cards/steal.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "steal",
         "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
-        "code-location": "cards/steal.js"
+        "code-location": "cards/steal.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "steal",
         "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
-        "code-location": "cards/steal.js"
+        "code-location": "cards/steal.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "steal",
         "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
-        "code-location": "cards/steal.js"
+        "code-location": "cards/steal.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "steal",
         "id": "steal",
         "type": "plus",
         "image-location": "cards/steal.png",
-        "code-location": "cards/steal.js"
+        "code-location": "cards/steal.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "draw 2",
         "id": "draw-2",
         "type": "plus",
         "image-location": "cards/draw-2.png",
-        "code-location": "cards/draw-2.js"
+        "code-location": "cards/draw-2.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "draw 2",
         "id": "draw-2",
         "type": "plus",
         "image-location": "cards/draw-2.png",
-        "code-location": "cards/draw-2.js"
+        "code-location": "cards/draw-2.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "helpful hand",
         "id": "helpful-hand",
         "type": "plus",
         "image-location": "cards/helpful-hand.png",
-        "code-location": "cards/helpful-hand.js"
+        "code-location": "cards/helpful-hand.js",
+        "headers": [
+            "joincode",
+            "username",
+            "discardcard"
+        ]
     },
     {
         "name": "helpful hand",
         "id": "helpful-hand",
         "type": "plus",
         "image-location": "cards/helpful-hand.png",
-        "code-location": "cards/helpful-hand.js"
+        "code-location": "cards/helpful-hand.js",
+        "headers": [
+            "joincode",
+            "username",
+            "discardcard"
+        ]
     },
     {
         "name": "crack",
         "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
-        "code-location": "cards/crack.js"
+        "code-location": "cards/crack.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "crack",
         "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
-        "code-location": "cards/crack.js"
+        "code-location": "cards/crack.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "crack",
         "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
-        "code-location": "cards/crack.js"
+        "code-location": "cards/crack.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "crack",
         "id": "crack",
         "type": "shooting",
         "image-location": "cards/crack.png",
-        "code-location": "cards/crack.js"
+        "code-location": "cards/crack.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "dent",
         "id": "dent",
         "type": "shooting",
         "image-location": "cards/dent.png",
-        "code-location": "cards/dent.js"
+        "code-location": "cards/dent.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "stolen parts",
         "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
-        "code-location": "cards/stolen-parts.js"
+        "code-location": "cards/stolen-parts.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "stolen parts",
         "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
-        "code-location": "cards/stolen-parts.js"
+        "code-location": "cards/stolen-parts.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "stolen parts",
         "id": "stolen-parts",
         "type": "shooting",
         "image-location": "cards/stolen-parts.png",
-        "code-location": "cards/stolen-parts.js"
+        "code-location": "cards/stolen-parts.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "big bomb",
         "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
-        "code-location": "cards/big-bomb.js"
+        "code-location": "cards/big-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "big bomb",
         "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
-        "code-location": "cards/big-bomb.js"
+        "code-location": "cards/big-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "big bomb",
         "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
-        "code-location": "cards/big-bomb.js"
+        "code-location": "cards/big-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "big bomb",
         "id": "big-bomb",
         "type": "shooting",
         "image-location": "cards/big-bomb.png",
-        "code-location": "cards/big-bomb.js"
+        "code-location": "cards/big-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "small bomb",
         "id": "small-bomb",
         "type": "shooting",
         "image-location": "cards/small-bomb.png",
-        "code-location": "cards/small-bomb.js"
+        "code-location": "cards/small-bomb.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "landmine",
         "id": "landmine",
         "type": "shooting",
         "image-location": "cards/landmine.png",
-        "code-location": "cards/landmine.js"
+        "code-location": "cards/landmine.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "nuke",
         "id": "nuke",
         "type": "shooting",
         "image-location": "cards/nuke.png",
-        "code-location": "cards/nuke.js"
+        "code-location": "cards/nuke.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "no shooting",
         "id": "no-shooting",
         "type": "event",
         "image-location": "cards/no-shooting.png",
-        "code-location": "cards/no-shooting.js"
+        "code-location": "cards/no-shooting.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "no shooting",
         "id": "no-shooting",
         "type": "event",
         "image-location": "cards/no-shooting.png",
-        "code-location": "cards/no-shooting.js"
+        "code-location": "cards/no-shooting.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "more ammo",
         "id": "more-ammo",
         "type": "event",
         "image-location": "cards/more-ammo.png",
-        "code-location": "cards/more-ammo.js"
+        "code-location": "cards/more-ammo.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "more ammo",
         "id": "more-ammo",
         "type": "event",
         "image-location": "cards/more-ammo.png",
-        "code-location": "cards/more-ammo.js"
+        "code-location": "cards/more-ammo.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "new model",
         "id": "new-model",
         "type": "event",
         "image-location": "cards/new-model.png",
-        "code-location": "cards/new-model.js"
+        "code-location": "cards/new-model.js",
+        "headers": [
+            "joincode",
+            "username",
+            "discardcard",
+            "discardcardtwo"
+        ]
     },
     {
         "name": "new model",
         "id": "new-model",
         "type": "event",
         "image-location": "cards/new-model.png",
-        "code-location": "cards/new-model.js"
+        "code-location": "cards/new-model.js",
+        "headers": [
+            "joincode",
+            "username",
+            "discardcard",
+            "discardcardtwo"
+        ]
     },
     {
         "name": "airstrike",
         "id": "airstrike",
         "type": "event",
         "image-location": "cards/airstrike.png",
-        "code-location": "cards/airstrike.js"
+        "code-location": "cards/airstrike.js",
+        "headers": [
+            "joincode",
+            "username",
+            "target"
+        ]
     },
     {
         "name": "spray",
         "id": "spray",
         "type": "event",
         "image-location": "cards/spray.png",
-        "code-location": "cards/spray.js"
+        "code-location": "cards/spray.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     },
     {
         "name": "lottery",
         "id": "lottery",
         "type": "event",
         "image-location": "cards/lottery.png",
-        "code-location": "cards/lottery.js"
+        "code-location": "cards/lottery.js",
+        "headers": [
+            "joincode",
+            "username"
+        ]
     }
 ]
