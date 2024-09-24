@@ -32,11 +32,11 @@ function renderGame() {
         document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
         if (gameData['order'][gameData['turn']] == username) {
             document.getElementById('end-turn').style.display = 'block'
-            document.getElementById('playCardBtn').style.display = 'block'
+            document.getElementById('play-card').style.display='block'
         }
         else {
             document.getElementById('end-turn').style.display = 'none'
-            document.getElementById('playCardBtn').style.display='none'
+            document.getElementById('play-card').style.display='none'
         }
         const gameDiv = document.getElementById('game');
         gameDiv.innerHTML = '';  // Clear the game div
