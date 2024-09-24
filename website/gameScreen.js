@@ -18,7 +18,7 @@ async function fetchDeck() {
 // Fetch the game state from the server every second
 async function fetchGameState() {
     try {
-        const response = await fetch(`https://${serverip}/gameState`, { headers: { joincode: joincode } });
+        const response = await fetch(`https://${serverip}/gameState`, { headers: { joincode: joincode, username: username } });
         gameData = await response.json();
         renderGame();  // Render the game whenever the game state is updated
     } catch (error) {
@@ -30,8 +30,14 @@ async function fetchGameState() {
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
         document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
-        if (gameData['order'][gameData['turn']] == username) document.getElementById('end-turn').style.display = 'block'
-        else document.getElementById('end-turn').style.display = 'none'
+        if (gameData['order'][gameData['turn']] == username) {
+            document.getElementById('end-turn').style.display = 'block'
+            document.getElementById('playCardBtn').style.display = 'block'
+        }
+        else {
+            document.getElementById('end-turn').style.display = 'none'
+            document.getElementById('playCardBtn').style.display='none'
+        }
         const gameDiv = document.getElementById('game');
         gameDiv.innerHTML = '';  // Clear the game div
 
@@ -76,7 +82,7 @@ function renderGame() {
             playerDiv.appendChild(handDiv);
             gameDiv.appendChild(playerDiv);
         }
-        renderedData=gameData
+        renderedData = gameData
     }
 }
 
