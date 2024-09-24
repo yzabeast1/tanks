@@ -6,7 +6,7 @@ var playersInLobbyCooldown = 1000;
 var lobbyPlayersInterval = 0
 var lobbyStartedCheckCoooldown = 1000
 var lobbyStartedCheckInterval = 0;
-const serverip = '104.179.112.200:4000'
+var serverip = '104.179.112.200:4000'
 function joinLobby() {
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'

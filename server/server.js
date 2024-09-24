@@ -51,6 +51,7 @@ try {
     httpsApp.post('/quitGame', (req, res) => { quitGame(req, res) });
     httpsApp.post('/startGame', (req, res) => { startGame(req, res) });
     httpsApp.get('/checkGameStarted', (req, res) => { checkGameStarted(req, res) });
+    httpsApp.get('/gameState', (req, res) => { gameState(req, res) })
     httpsApp.get('/getChat', (req, res) => { getChat(req, res) })
     httpsApp.post('/sendChat', (req, res) => { sendChat(req, res) })
     httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })

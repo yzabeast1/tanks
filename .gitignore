@@ -6,3 +6,7 @@ gameLobbies.json
 notes.txt
 cards.json
 chat.json
+issues.txt
+ca_bundle.crt
+private.key
+certificate.crt
