@@ -8,5 +8,6 @@ module.exports=function quitGame(req,res){
         delete game['players'][username]
         games[joincode]=game
         fs.writeFile('games.json',JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+        res.end()
     })
 }
