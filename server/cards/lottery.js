@@ -1,5 +1,5 @@
 const fs = require('fs')
-const endTurn = require("./commands/endTurn.js")
+const endTurn = require("../commands/endTurn.js")
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         const username = req.headers.username

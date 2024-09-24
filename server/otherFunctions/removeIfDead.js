@@ -1,4 +1,4 @@
-const lastStandID=17
+const lastStandID = 17
 module.exports = function (games, game, target) {
     if (games[game]['players'][target]['health'] <= 0)
         if (games[game]['players'][target]['hand'].includes(lastStandID)) {
@@ -6,6 +6,13 @@ module.exports = function (games, game, target) {
             const handIndex = games[game]['players'][username]['hand'].indexOf(lastStandID)
             games[game]['players'][username]['hand'].splice(handIndex, 1)
         }
-        else delete games[game]['players'][target]
+        else {
+            delete games[game]['players'][target]
+            var currentPlayer = games[game]['order'][games[game]['turn']]
+            if (currentPlayer != target) {
+                games[game]['order'].splice(games[game]['order'].indexOf(target))
+                games[game]['turn'] = games[game]['order'].indexOf(currentPlayer)
+            }
+        }
     return games
 }

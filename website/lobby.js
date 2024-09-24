@@ -8,11 +8,15 @@ var lobbyStartedCheckCoooldown = 1000
 var lobbyStartedCheckInterval = 0;
 var serverip = '104.179.112.200:4000'
 function joinLobby() {
+    username = document.getElementById('username-input').value;
+    joincode = document.getElementById('joincode-input').value;
+    if (joincode.trim() === '' || username.trim() === '') {
+        alert('Please enter both a join code and username');
+        return;
+    }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
     document.querySelector('.start-game').style.display = 'none'
-    username = document.getElementById('username-input').value;
-    joincode = document.getElementById('joincode-input').value;
     const headers = {
         'Content-Type': 'application/json',
         'username': username,
@@ -47,9 +51,13 @@ function joinLobby() {
     lobbyStartChat();
 }
 function newGame() {
+    username = document.getElementById('username-input').value;
+    if (username.trim() === '') {
+        alert('Please enter a username');
+        return;
+    }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
-    username = document.getElementById('username-input').value;
     const headers = {
         'Content-Type': 'application/json',
         'username': username
@@ -172,7 +180,7 @@ function createDeck() {
         deck.forEach(card => {
             // Create an image element
             const img = document.createElement('img');
-            img.src = "https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/"+card['image-location']; // Set the image source to the card's image location
+            img.src = "https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/" + card['image-location']; // Set the image source to the card's image location
             img.alt = card.name; // Set the alt text to the card's name
             img.style.width = '150px'; // Optional: set the image size
             img.style.margin = '10px'; // Optional: add some margin between images

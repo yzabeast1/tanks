@@ -8,8 +8,8 @@ module.exports = function (req, res, cardid) {
         if (games[game]['event_count'] > 0) {
             games[game]['event_count']--
             games[game]['players'][username]['health']++
-            for (var player in games[game]['players']) {
-                player['health'] -= 3
+            for (var i=0;i<games[game]['order'].length;i++) {
+                games[game]['players'][games[game]['order'][i]]['health'] -= 3
                 removeAllIfDead(games, game)
             }
             const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))

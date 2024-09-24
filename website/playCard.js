@@ -3,6 +3,8 @@ function playCard(){
     var card=document.getElementById('modalImage').src
     card=card.split("/")
     card=card[card.length-1]
+    card=card.split(".")
+    card=card[0]
     cardSelected=card
     triggerActions(deck.find(item => item.id === card).headers)
 }

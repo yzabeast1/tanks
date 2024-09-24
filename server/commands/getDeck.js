@@ -1,5 +1,6 @@
-const path = require('path');
+const fs = require('fs')
 module.exports = function (req, res) {
-    const deckPath = path.join(__dirname, '../deck.json');
-    res.sendFile(deckPath);
+    fs.readFile('deck.json', 'utf8', (err, data) => {
+        res.end(data)
+    })
 }
