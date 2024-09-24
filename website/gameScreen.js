@@ -1,7 +1,8 @@
 document.getElementById('start-game').addEventListener('click', startGame);
-document.getElementById('end-turn').addEventListener('click',endTurn)
+document.getElementById('end-turn').addEventListener('click', endTurn)
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
+var renderedData = {}
 
 
 // Fetch the deck from the server
@@ -27,52 +28,55 @@ async function fetchGameState() {
 
 // Render the game
 function renderGame() {
-    document.getElementById('turn').innerHTML=gameData['order'][gameData['turn']]+"'s Turn"
-    if(gameData['order'][gameData['turn']]==username)document.getElementById('end-turn').style.display='block'
-    else document.getElementById('end-turn').style.display='none'
-    const gameDiv = document.getElementById('game');
-    gameDiv.innerHTML = '';  // Clear the game div
+    if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
+        document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
+        if (gameData['order'][gameData['turn']] == username) document.getElementById('end-turn').style.display = 'block'
+        else document.getElementById('end-turn').style.display = 'none'
+        const gameDiv = document.getElementById('game');
+        gameDiv.innerHTML = '';  // Clear the game div
 
-    // Move the current player's data to the top of the player list for rendering
-    const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+        // Move the current player's data to the top of the player list for rendering
+        const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
 
-    // Render players' hands
-    for (const player in orderedPlayers) {
-        const playerData = orderedPlayers[player];
-        const playerDiv = document.createElement('div');
-        playerDiv.classList.add('player');
-        
-        const healthText = document.createElement('p');
-        healthText.innerText = `${player}'s Health: ${playerData.health}`;
-        playerDiv.appendChild(healthText);
+        // Render players' hands
+        for (const player in orderedPlayers) {
+            const playerData = orderedPlayers[player];
+            const playerDiv = document.createElement('div');
+            playerDiv.classList.add('player');
 
-        const handDiv = document.createElement('div');
-        handDiv.classList.add('hand');
+            const healthText = document.createElement('p');
+            healthText.innerText = `${player}'s Health: ${playerData.health}`;
+            playerDiv.appendChild(healthText);
 
-        playerData.hand.forEach(cardIndex => {
-            const cardDiv = document.createElement('div');
-            cardDiv.classList.add('card');
+            const handDiv = document.createElement('div');
+            handDiv.classList.add('hand');
 
-            const img = document.createElement('img');
-            if (player === username) {
-                img.src = `https://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
-                img.alt = deck[cardIndex].name;
-                cardDiv.classList.add('my-hand');
-            } else {
-                img.src = `https://${serverip}/cardImage/back`;  // Use the back image for others
-                img.alt = 'Card Back';
-            }
+            playerData.hand.forEach(cardIndex => {
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
 
-            cardDiv.appendChild(img);
+                const img = document.createElement('img');
+                if (player === username) {
+                    img.src = `https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/${deck[cardIndex]['image-location']}`;  // Use card ID to get the front image
+                    img.alt = deck[cardIndex].name;
+                    cardDiv.classList.add('my-hand');
+                } else {
+                    img.src = `https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/cards/back.png`;  // Use the back image for others
+                    img.alt = 'Card Back';
+                }
 
-            // Add click event to zoom in on card
-            cardDiv.addEventListener('click', () => openModal(img.src));
+                cardDiv.appendChild(img);
 
-            handDiv.appendChild(cardDiv);
-        });
+                // Add click event to zoom in on card
+                cardDiv.addEventListener('click', () => openModal(img.src));
 
-        playerDiv.appendChild(handDiv);
-        gameDiv.appendChild(playerDiv);
+                handDiv.appendChild(cardDiv);
+            });
+
+            playerDiv.appendChild(handDiv);
+            gameDiv.appendChild(playerDiv);
+        }
+        renderedData=gameData
     }
 }
 
@@ -112,6 +116,6 @@ function joinStartedGame() {
     setInterval(fetchGameState, 1000);
     fetchGameState()
 }
-function endTurn(){
-    postWithFallbackNoJSON(`https://${serverip}/endTurn`,{joincode:joincode,username:username})
+function endTurn() {
+    postWithFallbackNoJSON(`https://${serverip}/endTurn`, { joincode: joincode, username: username })
 }
