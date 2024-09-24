@@ -66,7 +66,17 @@
         <div id="modal">
             <button class="close" onclick="closeModal()">X</button>
             <img id="modalImage" src="" alt="Zoomed Card">
+            <button class="play-card" onclick="playCard()">PlayCard</button>
         </div>
+        <div id="popupModal">
+            <div class="popup-content">
+                <button class="close-btn" onclick="closePopup()">X</button>
+                <div id="popupContent"></div>
+    
+                <!-- Play Card Button -->
+                <button id="playCardBtn" onclick="sendPlayedCardToServer()">Play Card</button>
+            </div>
+        </div>    
     </div>
 
     <script src="chat.js"></script>
@@ -74,6 +84,7 @@
     <script src="lobbyChat.js"></script>
     <script src="networkFunctions.js"></script>
     <script src="gameScreen.js"></script>
+    <script src="playCard.js"></script>
 </body>
 
 </html>
