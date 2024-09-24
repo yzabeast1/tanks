@@ -98,7 +98,7 @@ function sendPlayedCardToServer() {
     if(discardOptions[0])headers['discardcard']=findCardInPlayerHand(discardOptions[0],username)
     if(discardOptions[1])headers['discardcardtwo']=findCardInPlayerHand(discardOptions[1],username)
     console.log(headers)
-    postWithFallback(`http://${serverip}/playcard`,headers)
+    postWithFallback(`https://${serverip}/playcard`,headers)
     // You can now process the selected player and discard options here
     closePopup();  // Close the popup after playing the card
     closeModal();

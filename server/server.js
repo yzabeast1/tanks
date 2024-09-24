@@ -55,26 +55,41 @@ try {
     httpsApp.post('/sendChat', (req, res) => { sendChat(req, res) })
     httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
     httpsApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
-    httpsApp.get('/getDeck',(req,res)=>{getDeck(req,res)})
+    httpsApp.get('/getDeck', (req, res) => { getDeck(req, res) })
     const deck = JSON.parse(fs.readFileSync('deck.json', 'utf8'));
 
-// Dynamically create routes for each card
-deck.forEach(card => {
-  httpsApp.get(`/cardImage/${card.id}`, (req, res) => {
-    // Path to the image file from deck.json
-    const imagePath = path.join(__dirname, card['image-location']);
+    // Dynamically create routes for each card
+    deck.forEach(card => {
+        httpsApp.get(`/cardImage/${card.id}`, (req, res) => {
+            // Path to the image file from deck.json
+            const imagePath = path.join(__dirname, card['image-location']);
 
-    // Check if the image exists
-    fs.access(imagePath, fs.constants.F_OK, (err) => {
-      if (err) {
-        return res.status(404).send('Image not found');
-      }
+            // Check if the image exists
+            fs.access(imagePath, fs.constants.F_OK, (err) => {
+                if (err) {
+                    return res.status(404).send('Image not found');
+                }
 
-      // Stream the image as a response
-      res.sendFile(imagePath);
+                // Stream the image as a response
+                res.sendFile(imagePath);
+            });
+        });
     });
-  });
-});
+    httpsApp.get('/cardImage/back', (req, res) => {
+        // Path to the image file from deck.json
+        const imagePath = path.join(__dirname, "cards/back.png");
+    
+        // Check if the image exists
+        fs.access(imagePath, fs.constants.F_OK, (err) => {
+            if (err) {
+                return res.status(404).send('Image not found');
+            }
+    
+            // Stream the image as a response
+            res.sendFile(imagePath);
+        });
+    
+    })
 }
 catch (e) {
     console.log(`Error with HTTPS\n ${e}`);
@@ -103,7 +118,7 @@ httpApp.get('/getChat', (req, res) => { getChat(req, res) })
 httpApp.post('/sendChat', (req, res) => { sendChat(req, res) })
 httpApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
 httpApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
-httpApp.get('/getDeck',(req,res)=>{getDeck(req,res)})
+httpApp.get('/getDeck', (req, res) => { getDeck(req, res) })
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
 const cardInfo = require("./commands/cardInfo.js") // card id
@@ -118,39 +133,39 @@ const getChat = require("./commands/getChat.js")//joincode
 const sendChat = require("./commands/sendChat.js")//joincode, username
 const lobbyState = require("./commands/lobbyState.js")//joincode
 const leaveLobby = require("./commands/leaveLobby.js")//username,joincode
-const getDeck=require("./commands/getDeck.js")
+const getDeck = require("./commands/getDeck.js")
 
 const deck = JSON.parse(fs.readFileSync('deck.json', 'utf8'));
 
 // Dynamically create routes for each card
 deck.forEach(card => {
-  httpApp.get(`/cardImage/${card.id}`, (req, res) => {
-    // Path to the image file from deck.json
-    const imagePath = path.join(__dirname, card['image-location']);
-
-    // Check if the image exists
-    fs.access(imagePath, fs.constants.F_OK, (err) => {
-      if (err) {
-        return res.status(404).send('Image not found');
-      }
-
-      // Stream the image as a response
-      res.sendFile(imagePath);
-    });
-  });
-});
-httpApp.get('/cardImage/back',(req,res)=>{
+    httpApp.get(`/cardImage/${card.id}`, (req, res) => {
         // Path to the image file from deck.json
-        const imagePath = path.join(__dirname, "cards/back.png");
+        const imagePath = path.join(__dirname, card['image-location']);
 
         // Check if the image exists
         fs.access(imagePath, fs.constants.F_OK, (err) => {
-          if (err) {
-            return res.status(404).send('Image not found');
-          }
-    
-          // Stream the image as a response
-          res.sendFile(imagePath);
+            if (err) {
+                return res.status(404).send('Image not found');
+            }
+
+            // Stream the image as a response
+            res.sendFile(imagePath);
         });
-    
+    });
+});
+httpApp.get('/cardImage/back', (req, res) => {
+    // Path to the image file from deck.json
+    const imagePath = path.join(__dirname, "cards/back.png");
+
+    // Check if the image exists
+    fs.access(imagePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            return res.status(404).send('Image not found');
+        }
+
+        // Stream the image as a response
+        res.sendFile(imagePath);
+    });
+
 })

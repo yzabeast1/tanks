@@ -6,7 +6,7 @@ let gameData = {};  // Game data will be fetched from the server
 // Fetch the deck from the server
 async function fetchDeck() {
     try {
-        const response = await fetch(`http://${serverip}/getDeck`);
+        const response = await fetch(`https://${serverip}/getDeck`);
         deck = await response.json();
     } catch (error) {
         console.error('Failed to fetch deck:', error);
@@ -16,7 +16,7 @@ async function fetchDeck() {
 // Fetch the game state from the server every second
 async function fetchGameState() {
     try {
-        const response = await fetch(`http://${serverip}/gameState`, { headers: { joincode: joincode } });
+        const response = await fetch(`https://${serverip}/gameState`, { headers: { joincode: joincode } });
         gameData = await response.json();
         renderGame();  // Render the game whenever the game state is updated
     } catch (error) {
@@ -52,11 +52,11 @@ function renderGame() {
 
             const img = document.createElement('img');
             if (player === username) {
-                img.src = `http://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
+                img.src = `httsp://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
                 img.alt = deck[cardIndex].name;
                 cardDiv.classList.add('my-hand');
             } else {
-                img.src = `http://${serverip}/cardImage/back`;  // Use the back image for others
+                img.src = `https://${serverip}/cardImage/back`;  // Use the back image for others
                 img.alt = 'Card Back';
             }
 

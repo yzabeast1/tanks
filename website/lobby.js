@@ -6,7 +6,7 @@ var playersInLobbyCooldown = 1000;
 var lobbyPlayersInterval = 0
 var lobbyStartedCheckCoooldown = 1000
 var lobbyStartedCheckInterval = 0;
-const serverip = '127.0.0.1'
+const serverip = '104.179.112.200:4000'
 function joinLobby() {
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
@@ -172,7 +172,7 @@ function createDeck() {
         deck.forEach(card => {
             // Create an image element
             const img = document.createElement('img');
-            img.src = "http://" + serverip + "/cardImage/" + card['id']; // Set the image source to the card's image location
+            img.src = "https://" + serverip + "/cardImage/" + card['id']; // Set the image source to the card's image location
             img.alt = card.name; // Set the alt text to the card's name
             img.style.width = '150px'; // Optional: set the image size
             img.style.margin = '10px'; // Optional: add some margin between images
@@ -189,7 +189,7 @@ function addCardToDeck() {
     deck.appendChild(image)
 }
 function lobbyStartedCheck() {
-    fetch(`http://${serverip}/checkGameStarted`, {
+    fetch(`https://${serverip}/checkGameStarted`, {
         method: 'GET',
         headers: {
             'joincode': joincode
