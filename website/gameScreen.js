@@ -1,4 +1,5 @@
 document.getElementById('start-game').addEventListener('click', startGame);
+document.getElementById('end-turn').addEventListener('click',endTurn)
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 
@@ -27,6 +28,8 @@ async function fetchGameState() {
 // Render the game
 function renderGame() {
     document.getElementById('turn').innerHTML=gameData['order'][gameData['turn']]+"'s Turn"
+    if(gameData['order'][gameData['turn']]==username)document.getElementById('end-turn').style.display='block'
+    else document.getElementById('end-turn').style.display='none'
     const gameDiv = document.getElementById('game');
     gameDiv.innerHTML = '';  // Clear the game div
 
@@ -108,4 +111,7 @@ function joinStartedGame() {
     fetchDeck();
     setInterval(fetchGameState, 1000);
     fetchGameState()
+}
+function endTurn(){
+    postWithFallbackNoJSON(`https://${serverip}/endTurn`,{joincode:joincode,username:username})
 }
