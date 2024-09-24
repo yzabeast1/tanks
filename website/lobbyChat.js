@@ -54,7 +54,7 @@ function lobbyFetchChatMessages() {
                 lobbyClearChatBox();
                 data.forEach(message => {
                     if(document.getElementById('lobby-chat-timestamps').checked){
-                        var time=new Date(message['time-sent'])
+                        var time=new Date(message['time-sent']*1000)
                         lobbyAddMessageToChatBox(`[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}] ${message.sender}: ${message.text}`, 'lobby-server-message')
                     }
                     else lobbyAddMessageToChatBox(`${message.sender}: ${message.text}`, 'lobby-server-message');
