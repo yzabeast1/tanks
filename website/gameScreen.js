@@ -52,7 +52,7 @@ function renderGame() {
 
             const img = document.createElement('img');
             if (player === username) {
-                img.src = `httsp://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
+                img.src = `https://${serverip}/cardImage/${deck[cardIndex].id}`;  // Use card ID to get the front image
                 img.alt = deck[cardIndex].name;
                 cardDiv.classList.add('my-hand');
             } else {
