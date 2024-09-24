@@ -5,7 +5,7 @@ module.exports = function (req, res, cardid) {
         const game = req.headers.joincode
         const target = req.headers.target
         const username = req.headers.username
-        const handSize = games[game]['players'][target]['hand'].length()
+        const handSize = games[game]['players'][target]['hand'].length
         const cardToSteal = Math.floor(Math.random()* handSize)
         games[game]['players'][username]['hand'].push(games[game]['players'][target]['hand'][cardToSteal])
         games[game]['players'][target]['hand'].splice(cardToSteal, 1)
