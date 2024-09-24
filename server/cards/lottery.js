@@ -12,7 +12,7 @@ module.exports = function (req, res, cardid) {
             games[game]['players'][username]['hand'].push(games[game]['draw_pile'][3])
             games[game]['players'][username]['hand'].push(games[game]['draw_pile'][4])
             games[game]['draw_pile'].splice(0, 5)
-            const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+            const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
             games[game]['players'][username]['hand'].splice(handIndex, 1)
             fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
             endTurn(req,res)

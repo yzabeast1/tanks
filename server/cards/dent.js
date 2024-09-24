@@ -1,5 +1,5 @@
 const fs = require('fs')
-const removeIfDead = require("./otherFunctions/removeIfDead.js")
+const removeIfDead = require("../otherFunctions/removeIfDead.js")
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         var games = JSON.parse(data)
@@ -10,7 +10,7 @@ module.exports = function (req, res, cardid) {
             if (games[game]['shooting_count'] > 0) {
                 games[game]['shooting_count']--
                 games[game]['players'][target]['health']--
-                const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+                const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                 games[game]['players'][username]['hand'].splice(handIndex, 1)
                 games = removeIfDead(games, game, target)
                 games[game]["card_played_this_turn"] = true

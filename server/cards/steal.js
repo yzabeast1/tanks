@@ -9,7 +9,7 @@ module.exports = function (req, res, cardid) {
         const cardToSteal = Math.floor(Math.random()* handSize)
         games[game]['players'][username]['hand'].push(games[game]['players'][target]['hand'][cardToSteal])
         games[game]['players'][target]['hand'].splice(cardToSteal, 1)
-        const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+        const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
         games[game]['players'][username]['hand'].splice(handIndex, 1)
         games[game]["card_played_this_turn"] = true
         fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })

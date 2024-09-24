@@ -9,7 +9,7 @@ module.exports = function (req, res, cardid) {
         if (games[game]['shooting_allowed'] || games[game]['no_shooting_player'] == username) {
             if (games[game]['shooting_count'] > 0) {
                 games[game]['shooting_count']--
-                const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+                const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                 games[game]['players'][username]['hand'].splice(handIndex, 1)
                 const targetIndex = games[game]['players'][target]['queued_cards'].indexOf(targetCard)
                 games[game]['players'][target]['queued_cards'].splice(targetIndex, 1)

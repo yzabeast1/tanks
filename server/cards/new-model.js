@@ -12,11 +12,11 @@ module.exports = function (req, res, cardid) {
                 if (deck[discardone]['type'] == 'shooting' && deck[discardtwo]['type'] == 'shooting') {
                     if (games[game]['players'][username]['health'] < 10) {
                         games[game]['players'][username]['health'] = 10
-                        const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+                        const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                         games[game]['players'][username]['hand'].splice(handIndex, 1)
-                        const discardOneIndex = games[game]['players'][username]['hand'].indexOf(discardone)
+                        const discardOneIndex = games[game]['players'][username]['hand'].indexOf(parseInt(discardone))
                         games[game]['players'][username]['hand'].splice(discardOneIndex, 1)
-                        const discardTwoIndex = games[game]['players'][username]['hand'].indexOf(discardtwo)
+                        const discardTwoIndex = games[game]['players'][username]['hand'].indexOf(parseInt(discardtwo))
                         games[game]['players'][username]['hand'].splice(discardTwoIndex, 1)
                         games[game]["card_played_this_turn"] = true
                         games[game]['event_count']--

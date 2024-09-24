@@ -37,7 +37,7 @@ module.exports = function startGame(req, res) {
                 fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err); });
                 console.log(`A new game has been started with ${players}`);
                 delete lobbies[game];
-                fs.writeFile('gameLobbies,json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
+                fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
                 res.status(200).send('Game Started');
             });
         });

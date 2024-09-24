@@ -6,7 +6,7 @@ module.exports = function (req, res, cardid) {
         var games = JSON.parse(data)
         games[game]['shooting_allowed']=false
         games[game]['no_shooting_player']=username
-        const handIndex = games[game]['players'][username]['hand'].indexOf(cardid)
+        const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
         games[game]['players'][username]['hand'].splice(handIndex, 1)
         games[game]["card_played_this_turn"] = true
         fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })

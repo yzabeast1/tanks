@@ -4,7 +4,7 @@ module.exports = function (req, res) {
     fs.readFile('deck.json', 'utf8', (err, data) => {
         const deck = JSON.parse(data)
         const card = deck[cardID]
-        const cardFunction = require(card['code-location'])
+        const cardFunction = require("../"+card['code-location'])
         cardFunction(req, res, cardID)
     })
 }
