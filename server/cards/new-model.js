@@ -9,7 +9,7 @@ module.exports = function (req, res, cardid) {
             var games = JSON.parse(data)
             var deck = JSON.parse(data1)
             if (games[game]['event_count'] > 0) {
-                if (deck[discardone]['type'] == 'shooting' && deck[discardtwo]['type'] == 'shooting') {
+                if (deck[discardone]['type'] == 'shooting' && deck[discardtwo]['type'] == 'shooting'&&discardone!=discardtwo) {
                     if (games[game]['players'][username]['health'] < 10) {
                         games[game]['players'][username]['health'] = 10
                         const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))

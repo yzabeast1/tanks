@@ -56,7 +56,7 @@ function createDiscardDropdown(discardAction) {
 
     gameData.players[username].hand.forEach(cardIndex => {
         const card = deck[cardIndex]
-        if (card) {
+        if (card&&card.is!=cardSelected) {
             const option = document.createElement('option');
             option.value = card.id;
             option.text = card.name;
