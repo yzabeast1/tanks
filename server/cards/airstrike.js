@@ -5,7 +5,7 @@ module.exports = function (req, res, cardid) {
         const username = req.headers.username
         const game = req.headers.joincode
         const target = req.headers.target
-        const games = JSON.parse(data)
+        var games = JSON.parse(data)
         if (games[game]['event_count'] > 0) {
             games[game]['event_count']--
             games[game]['players'][target]['hand'] = []
