@@ -126,7 +126,6 @@ function joinStartedGame() {
     clearInterval(lobbyStartedCheckInterval)
     fetchDeck();
     setInterval(fetchGameState, 1000);
-    fetchGameState()
 }
 function endTurn() {
     postWithFallbackNoJSON(`https://${serverip}/endTurn`, { joincode: joincode, username: username })
