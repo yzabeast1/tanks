@@ -19,9 +19,8 @@ module.exports = function (games, game, target) {
                     games[game]['turn'] = games[game]['order'].indexOf(currentPlayer)
                 }
             }
-
+            return games
         })
-        return games
     }
     else return games
 }

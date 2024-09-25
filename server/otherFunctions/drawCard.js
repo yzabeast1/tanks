@@ -6,7 +6,6 @@ module.exports = function drawCard(games, game, target, number) {
             games[game]['players'][target]['hand'].push(games[game]['draw_pile'][i])
         }
         games[game]['draw_pile'].splice(0, number)
-        console.log(games)
         return games
     }
     else {
@@ -30,7 +29,6 @@ module.exports = function drawCard(games, game, target, number) {
                 }
             }
             games[game]['draw_pile']=games[game]['draw_pile'].concat(shuffle(missingCards))
-            console.log(games)
             drawCard(games,game,target,number)
         })
     }
