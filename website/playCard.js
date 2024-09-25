@@ -1,11 +1,11 @@
 var cardSelected;
-function playCard(){
-    var card=document.getElementById('modalImage').src
-    card=card.split("/")
-    card=card[card.length-1]
-    card=card.split(".")
-    card=card[0]
-    cardSelected=card
+function playCard() {
+    var card = document.getElementById('modalImage').src
+    card = card.split("/")
+    card = card[card.length - 1]
+    card = card.split(".")
+    card = card[0]
+    cardSelected = card
     triggerActions(deck.find(item => item.id === card).headers)
 }
 function triggerActions(actions) {
@@ -34,12 +34,13 @@ function createPlayerSelectPopup() {
     dropdown.innerHTML = '';  // Clear any existing options
 
     for (const player in gameData.players) {
-        const option = document.createElement('option');
-        option.value = player;
-        option.text = player;
-        dropdown.appendChild(option);
+        if (player !== username) {  // Exclude current player's name
+            const option = document.createElement('option');
+            option.value = player;
+            option.text = player;
+            dropdown.appendChild(option);
+        }
     }
-
     popupContent.appendChild(dropdown);
     popupContent.appendChild(document.createElement('br'))
 }
@@ -89,18 +90,18 @@ function sendPlayedCardToServer() {
         .map(dropdown => dropdown.value);
 
     console.log('Target:', selectedPlayer || 'No player selected');
-    console.log('Discard options:', discardOptions||'No discard');
-    var cardid=findCardInPlayerHand(cardSelected,username);
-    var headers={
-        joincode:joincode,
-        username:username,
-        cardid:cardid
+    console.log('Discard options:', discardOptions || 'No discard');
+    var cardid = findCardInPlayerHand(cardSelected, username);
+    var headers = {
+        joincode: joincode,
+        username: username,
+        cardid: cardid
     }
-    if(selectedPlayer)headers['target']=selectedPlayer
-    if(discardOptions[0])headers['discardcard']=findCardInPlayerHand(discardOptions[0],username)
-    if(discardOptions[1])headers['discardcardtwo']=findCardInPlayerHand(discardOptions[1],username)
+    if (selectedPlayer) headers['target'] = selectedPlayer
+    if (discardOptions[0]) headers['discardcard'] = findCardInPlayerHand(discardOptions[0], username)
+    if (discardOptions[1]) headers['discardcardtwo'] = findCardInPlayerHand(discardOptions[1], username)
     console.log(headers)
-    postWithFallback(`https://${serverip}/playcard`,headers)
+    postWithFallback(`https://${serverip}/playcard`, headers)
     // You can now process the selected player and discard options here
     closePopup();  // Close the popup after playing the card
     closeModal();
