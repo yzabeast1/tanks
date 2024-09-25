@@ -52,7 +52,7 @@ function renderGame() {
             if(gameData['landmine_in_play']){
                 document.getElementById('landmine').style.display='block'
             }
-            else document.getElementById('landmine')
+            else document.getElementById('landmine').style.display='none'
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
 

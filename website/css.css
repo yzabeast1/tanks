@@ -55,10 +55,13 @@ body {
 .player {
     margin-bottom: 20px;
 }
+
 .hand {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
+
 .card {
     width: 200px;
     height: 300px;
@@ -69,9 +72,11 @@ body {
     background-size: cover;
     cursor: pointer;
 }
+
 .my-hand .card {
     background-color: lightyellow;
 }
+
 img {
     width: 100%;
     height: 100%;
@@ -90,10 +95,13 @@ img {
     align-items: center;
     z-index: 1000;
 }
+
 #modal img {
     height: 100%;
-    width: auto;  /* Auto width with 100% height */
+    width: auto;
+    /* Auto width with 100% height */
 }
+
 #modal .close {
     position: absolute;
     top: 20px;
@@ -104,6 +112,7 @@ img {
     background: none;
     border: none;
 }
+
 /* Modal popup styles */
 #popupModal {
     display: none;
@@ -141,25 +150,6 @@ img {
 #popupContent {
     margin-top: 20px;
 }
-
-/*select, .hand {
-    margin: 10px 0;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}*/
-
-/*.hand .card {
-    width: 100px;
-    height: 150px;
-    background-color: lightgray;
-    border: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-size: cover;
-}*/
 
 /* Play button */
 #playCardBtn {
