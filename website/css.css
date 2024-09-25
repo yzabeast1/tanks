@@ -132,8 +132,10 @@ img {
     padding: 20px;
     border-radius: 8px;
     width: auto;
-    height: 100%;
-    max-width: 500px;
+    height: auto;
+    max-width: 90vw;  /* Maximum width is 90% of the viewport width */
+    max-height: 80vh; /* Maximum height is 80% of the viewport height */
+    overflow-y: auto; /* Adds scrolling if the content is too large */
     position: relative;
 }
 
