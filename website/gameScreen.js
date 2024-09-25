@@ -29,7 +29,7 @@ async function fetchGameState() {
 // Render the game
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
-        if (gameData['players'][username]) {
+        if (!gameData['players'][username]) {
             document.getElementById('turn').innerHTML="You Died"
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
