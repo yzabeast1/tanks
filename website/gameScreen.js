@@ -30,7 +30,8 @@ async function fetchGameState() {
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
         if (!gameData['players'][username]) {
-            document.getElementById('turn').innerHTML="You Died"
+            document.getElementById('dead').style.display='block'
+            document.getElementById('turn').style.display='none'
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
         } else {
@@ -43,6 +44,15 @@ function renderGame() {
                 document.getElementById('end-turn').style.display = 'none'
                 document.getElementById('play-card').style.display = 'none'
             }
+            if(!gameData['shooting_allowed']){
+                document.getElementById('no-shooting').style.display='block'
+                document.getElementById('no-shooting').innerHTML="No shooting was played by "+gameData['no_shooting_player']
+            }
+            else document.getElementById('no-shooting').style.display='none'
+            if(gameData['landmine_in_play']){
+                document.getElementById('landmine').style.display='block'
+            }
+            else document.getElementById('landmine')
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
 
