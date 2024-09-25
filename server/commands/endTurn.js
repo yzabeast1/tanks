@@ -8,7 +8,6 @@ module.exports = function endTurn(req, res) {
         if(username==games[game]['order'][games[game]['turn']]){
             if (games[game]['turn'] == games[game]['order'].length - 1) games[game]['turn'] = 0
             else games[game]['turn']++
-            console.log(games[game]['turn'])
             const newPlayerName=games[game]['order'][games[game]['turn']]
             games[game]['players'][newPlayerName]['hand'].push(games[game]['draw_pile'][0])
             games[game]['draw_pile'].splice(0,1)

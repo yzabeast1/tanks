@@ -14,8 +14,11 @@ module.exports = function (req, res, cardid) {
             games[game]['draw_pile'].splice(0, 5)
             const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
             games[game]['players'][username]['hand'].splice(handIndex, 1)
-            fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
-            endTurn(req,res)
+            games[game]['card_played_this_turn']=true
+            fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) {
+                if (err) console.log(err)
+                endTurn(req, res)
+            })
         }
     })
 }
