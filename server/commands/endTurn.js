@@ -1,5 +1,6 @@
 fs = require('fs')
 const removeIfDead = require("../otherFunctions/removeIfDead.js")
+const drawCard = require('../otherFunctions/drawCard.js')
 module.exports = function endTurn(req, res) {
     var game = req.headers.joincode
     var username = req.headers.username
@@ -9,8 +10,7 @@ module.exports = function endTurn(req, res) {
             if (games[game]['turn'] == games[game]['order'].length - 1) games[game]['turn'] = 0
             else games[game]['turn']++
             const newPlayerName=games[game]['order'][games[game]['turn']]
-            games[game]['players'][newPlayerName]['hand'].push(games[game]['draw_pile'][0])
-            games[game]['draw_pile'].splice(0,1)
+            games=drawCard(games,game,newPlayerName,1)
             games[game]['card_played_this_turn']=false
             games[game]['shooting_count']=1
             games[game]['event_count']=1

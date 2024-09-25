@@ -1,16 +1,14 @@
 const fs = require('fs')
+const drawCard = require('./otherFunctions/drawCard.js')
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         const username = req.headers.username
         const game = req.headers.joincode
         const discardCard=req.headers.discardcard
         var games=JSON.parse(data)
+        games=drawCard(games,game,username,3)
         const discardIndex=games[game]['players'][username]['hand'].indexOf(parseInt(discardCard))
         games[game]['players'][username]['hand'].splice(discardIndex,1)
-        games[game]['players'][username]['hand'].push(games[game]['draw_pile'][0])
-        games[game]['players'][username]['hand'].push(games[game]['draw_pile'][1])
-        games[game]['players'][username]['hand'].push(games[game]['draw_pile'][2])
-        games[game]['draw_pile'].splice(0,3)
         const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
         games[game]['players'][username]['hand'].splice(handIndex, 1)
         games[game]["card_played_this_turn"]=true
