@@ -31,19 +31,7 @@ function joinLobby() {
             document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + joincode
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(`http://${serverip}/joinGame`, {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + joincode
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
+            console.error('HTTPS error:', error);
         });
     lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
     lobbyStartedCheckInterval = setInterval(lobbyStartedCheck, lobbyStartedCheckCoooldown)
@@ -75,22 +63,7 @@ function newGame() {
             document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(`http://${serverip}/createGame`, {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    console.log(response.headers.get('joincode'));
-                    joincode = response.headers.get('joincode')
-                    document.getElementById('joincode-input').value = joincode
-                    document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
+            console.error('HTTPS error:', error);
         });
     lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
     addLobbyPlayer(username, 'server-messsage')
@@ -148,24 +121,7 @@ function leaveLobby() {
             }
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(`http://${serverip}/leaveLobby`, {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    else {
-                        document.querySelector('.menu-screen').style.display = 'block'
-                        document.querySelector('.lobby-screen').style.display = 'none'
-                        document.getElementById('joincode-input').value = ''
-                        clearInterval(lobbyPlayersInterval)
-                    }
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
+            console.error('HTTPS error:', error);
         });
 }
 function toggleDeck() {

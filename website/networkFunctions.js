@@ -6,13 +6,7 @@ function fetchWithFallback(url,headers) {
             return response.json();
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            return fetch(url.replace('https://', 'http://'), { headers })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                });
+            console.error('HTTPS error:', error);
         });
 }
 
@@ -28,19 +22,7 @@ function postWithFallback(url, headers) {
             return response.json();
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(url.replace('https://', 'http://'), {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response.json();
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
+            console.error('HTTPS error:', error);
         });
 }
 function postWithFallbackNoJSON(url, headers) {
@@ -55,18 +37,6 @@ function postWithFallbackNoJSON(url, headers) {
             return response;
         })
         .catch(error => {
-            console.warn('HTTPS failed, falling back to HTTP:', error);
-            // Retry with HTTP if HTTPS fails
-            fetch(url.replace('https://', 'http://'), {
-                method: 'POST',
-                headers: headers
-            })
-                .then(response => {
-                    if (!response.ok) throw new Error('HTTP failed');
-                    return response;
-                })
-                .catch(httpError => {
-                    console.error('Both HTTPS and HTTP failed:', httpError);
-                });
+            console.error('HTTPS error:', error);
         });
 }
