@@ -180,7 +180,7 @@ function createDeck() {
         deck.forEach(card => {
             // Create an image element
             const img = document.createElement('img');
-            img.src = "https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/" + card['image-location']; // Set the image source to the card's image location
+            img.src = "https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/" + card['image-location']; // Set the image source to the card's image location
             img.alt = card.name; // Set the alt text to the card's name
             img.style.width = '150px'; // Optional: set the image size
             img.style.margin = '10px'; // Optional: add some margin between images

@@ -68,11 +68,11 @@ function renderGame() {
 
                     const img = document.createElement('img');
                     if (player === username) {
-                        img.src = `https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/${deck[cardIndex]['image-location']}`;  // Use card ID to get the front image
+                        img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/${deck[cardIndex]['image-location']}`;  // Use card ID to get the front image
                         img.alt = deck[cardIndex].name;
                         cardDiv.classList.add('my-hand');
                     } else {
-                        img.src = `https://raw.githubusercontent.com/yzagorin/js-tanks/refs/heads/master/server/cards/back.png`;  // Use the back image for others
+                        img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/cards/back.png`;  // Use the back image for others
                         img.alt = 'Card Back';
                     }
 
