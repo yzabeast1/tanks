@@ -30,74 +30,79 @@ async function fetchGameState() {
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
         if (!gameData['players'][username]) {
-            document.getElementById('dead').style.display='block'
-            document.getElementById('turn').style.display='none'
+            document.getElementById('dead').style.display = 'block'
+            document.getElementById('turn').style.display = 'none'
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
         } else {
-            document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
-            if (gameData['order'][gameData['turn']] == username) {
-                document.getElementById('end-turn').style.display = 'block'
-                document.getElementById('play-card').style.display = 'block'
+            if (gameData.order.length == 1) {
+                document.getElementById('win').style.display = "block"
             }
             else {
-                document.getElementById('end-turn').style.display = 'none'
-                document.getElementById('play-card').style.display = 'none'
+                document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
+                if (gameData['order'][gameData['turn']] == username) {
+                    document.getElementById('end-turn').style.display = 'block'
+                    document.getElementById('play-card').style.display = 'block'
+                }
+                else {
+                    document.getElementById('end-turn').style.display = 'none'
+                    document.getElementById('play-card').style.display = 'none'
+                }
+                if (!gameData['shooting_allowed']) {
+                    document.getElementById('no-shooting').style.display = 'block'
+                    document.getElementById('no-shooting').innerHTML = "No shooting was played by " + gameData['no_shooting_player']
+                }
+                else document.getElementById('no-shooting').style.display = 'none'
+                if (gameData['landmine_in_play']) {
+                    document.getElementById('landmine').style.display = 'block'
+                }
+                else document.getElementById('landmine').style.display = 'none'
+                const gameDiv = document.getElementById('game');
+                gameDiv.innerHTML = '';  // Clear the game div
+
+                // Move the current player's data to the top of the player list for rendering
+                const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+
+                // Render players' hands
+                for (const player in orderedPlayers) {
+                    const playerData = orderedPlayers[player];
+                    const playerDiv = document.createElement('div');
+                    playerDiv.classList.add('player');
+
+                    const healthText = document.createElement('p');
+                    healthText.innerText = `${player}'s Health: ${playerData.health}`;
+                    playerDiv.appendChild(healthText);
+
+                    const handDiv = document.createElement('div');
+                    handDiv.classList.add('hand');
+
+                    playerData.hand.forEach(cardIndex => {
+                        const cardDiv = document.createElement('div');
+                        cardDiv.classList.add('card');
+
+                        const img = document.createElement('img');
+                        if (player === username) {
+                            img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/${deck[cardIndex]['image-location']}`;  // Use card ID to get the front image
+                            img.alt = deck[cardIndex].name;
+                            cardDiv.classList.add('my-hand');
+                        } else {
+                            img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/cards/back.png`;  // Use the back image for others
+                            img.alt = 'Card Back';
+                        }
+
+                        cardDiv.appendChild(img);
+
+                        // Add click event to zoom in on card
+                        cardDiv.addEventListener('click', () => openModal(img.src));
+
+                        handDiv.appendChild(cardDiv);
+                    });
+
+                    playerDiv.appendChild(handDiv);
+                    gameDiv.appendChild(playerDiv);
+                }
+                renderedData = gameData
             }
-            if(!gameData['shooting_allowed']){
-                document.getElementById('no-shooting').style.display='block'
-                document.getElementById('no-shooting').innerHTML="No shooting was played by "+gameData['no_shooting_player']
-            }
-            else document.getElementById('no-shooting').style.display='none'
-            if(gameData['landmine_in_play']){
-                document.getElementById('landmine').style.display='block'
-            }
-            else document.getElementById('landmine').style.display='none'
-            const gameDiv = document.getElementById('game');
-            gameDiv.innerHTML = '';  // Clear the game div
-
-            // Move the current player's data to the top of the player list for rendering
-            const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
-
-            // Render players' hands
-            for (const player in orderedPlayers) {
-                const playerData = orderedPlayers[player];
-                const playerDiv = document.createElement('div');
-                playerDiv.classList.add('player');
-
-                const healthText = document.createElement('p');
-                healthText.innerText = `${player}'s Health: ${playerData.health}`;
-                playerDiv.appendChild(healthText);
-
-                const handDiv = document.createElement('div');
-                handDiv.classList.add('hand');
-
-                playerData.hand.forEach(cardIndex => {
-                    const cardDiv = document.createElement('div');
-                    cardDiv.classList.add('card');
-
-                    const img = document.createElement('img');
-                    if (player === username) {
-                        img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/${deck[cardIndex]['image-location']}`;  // Use card ID to get the front image
-                        img.alt = deck[cardIndex].name;
-                        cardDiv.classList.add('my-hand');
-                    } else {
-                        img.src = `https://raw.githubusercontent.com/yzabeast1/tanks/refs/heads/master/server/cards/back.png`;  // Use the back image for others
-                        img.alt = 'Card Back';
-                    }
-
-                    cardDiv.appendChild(img);
-
-                    // Add click event to zoom in on card
-                    cardDiv.addEventListener('click', () => openModal(img.src));
-
-                    handDiv.appendChild(cardDiv);
-                });
-
-                playerDiv.appendChild(handDiv);
-                gameDiv.appendChild(playerDiv);
-            }
-            renderedData = gameData
         }
     }
 }
