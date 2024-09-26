@@ -83,10 +83,10 @@ function addMessageToChatBox(message, className) {
 }
 function addLogToChatBox(message, classname){
     const messageElement = document.createElement('div');
-    messageElement.className = className;
+    messageElement.className = classname;
     strong=document.createElement('strong')
-    strong.className=className
-    strong.innerHTML=message
+    strong.className=classname
+    strong.innerHTML="Action: "+message
     messageElement.appendChild(strong)
     const chatBox = document.getElementById('chat-box');
     chatBox.appendChild(messageElement);
