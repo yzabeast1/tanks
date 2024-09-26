@@ -37,6 +37,10 @@ function renderGame() {
         } else {
             if (gameData.order.length == 1) {
                 document.getElementById('win').style.display = "block"
+                document.getElementById('turn').style.display = 'none'
+                document.getElementById('end-turn').style.display='none'
+                const gameDiv = document.getElementById('game');
+                gameDiv.innerHTML = '';  // Clear the game div
             }
             else {
                 document.getElementById('turn').innerHTML = gameData['order'][gameData['turn']] + "'s Turn"
