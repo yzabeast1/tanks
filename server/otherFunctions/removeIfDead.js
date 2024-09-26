@@ -32,7 +32,6 @@ module.exports = function (games, game, target) {
 
         return games
     } else {
-        console.log('tests1')
         return games
     }
 }
