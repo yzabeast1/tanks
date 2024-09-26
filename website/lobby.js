@@ -63,14 +63,14 @@ function newGame() {
             joincode = response.headers.get('joincode')
             document.getElementById('joincode-input').value = joincode
             document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + document.getElementById('joincode-input').value
+            lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
+            addLobbyPlayer(username, 'server-messsage')
+            lobbyPlayers();
+            startChat();
         })
         .catch(error => {
             console.error('HTTPS error:', error);
         });
-    lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
-    addLobbyPlayer(username, 'server-messsage')
-    lobbyPlayers();
-    startChat();
 }
 function lobbyPlayers() {
     const headers = { 'joincode': joincode }; // Add joincode header

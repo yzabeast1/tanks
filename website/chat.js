@@ -18,8 +18,8 @@ function startChat() {
     // document.querySelector('.chat-container').style.display = 'flex';
 
     // Start fetching chat messages periodically
-    setInterval(fetchChatMessages, chatCooldown);
-    fetchChatMessages();
+    setInterval(function() {fetchChatMessages(joincode)}, chatCooldown);
+    fetchChatMessages(joincode);
 }
 
 function sendMessage() {
@@ -52,7 +52,7 @@ function handleKeyPress(event) {
     }
 }
 
-function fetchChatMessages() {
+function fetchChatMessages(joincode) {
     const headers = { 'joincode': joincode }; // Add joincode header
     fetchWithFallback(`https://${serverip}/getChat`,headers)
         .then(data => {
