@@ -1,4 +1,5 @@
 fs = require('fs')
+const logAction=require('../otherFunctions/logAction.js')
 const removeIfDead = require("../otherFunctions/removeIfDead.js")
 const drawCard = require('../otherFunctions/drawCard.js')
 module.exports = function endTurn(req, res) {
@@ -25,6 +26,7 @@ module.exports = function endTurn(req, res) {
             if(!games[game]['shooting_allowed']&&games[game]['no_shooting_player']==newPlayerName)games[game]['shooting_allowed']=true
             fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
             res.end()
+            logAction(`${username} ended their turn`,game)
         }
         res.end()
     })

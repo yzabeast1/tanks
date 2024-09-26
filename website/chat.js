@@ -59,7 +59,8 @@ function fetchChatMessages() {
             if (data && data.length > 0) {
                 clearChatBox();
                 data.forEach(message => {
-                    addMessageToChatBox(`${message.sender}: ${message.text}`, 'server-message');
+                    if(messsage.sender!='server')addMessageToChatBox(`${message.sender}: ${message.text}`, 'server-message');
+                    else addMessageToChatBox(`<strong>${message.text}</strong>`,'action-log')
                 });
             } else {
                 console.warn('No messages found for this joincode.');

@@ -1,5 +1,6 @@
 const fs = require('fs')
 const removeIfDead = require("../otherFunctions/removeIfDead.js")
+const logAction=require('../otherFunctions/logAction.js')
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         var games = JSON.parse(data)
@@ -15,6 +16,7 @@ module.exports = function (req, res, cardid) {
                 games = removeIfDead(games, game, target)
                 games[game]["card_played_this_turn"] = true
                 fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+                logAction(`${username} has played dent against ${target}`,game)
             }
         }
     })

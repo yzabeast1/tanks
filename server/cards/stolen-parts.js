@@ -1,5 +1,6 @@
 const fs = require('fs')
 const removeIfDead = require("../otherFunctions/removeIfDead.js")
+const logAction = require('../otherFunctions/logAction.js')
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         var games = JSON.parse(data)
@@ -10,12 +11,13 @@ module.exports = function (req, res, cardid) {
             if (games[game]['shooting_count'] > 0) {
                 games[game]['shooting_count']--
                 games[game]['players'][target]['health'] -= 2
-                if(games[game]['players'][username]['health']<10)games[game]['players'][username]['health']++
+                if (games[game]['players'][username]['health'] < 10) games[game]['players'][username]['health']++
                 const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                 games[game]['players'][username]['hand'].splice(handIndex, 1)
                 games = removeIfDead(games, game, target)
                 games[game]["card_played_this_turn"] = true
                 fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+                logAction(`${username} has played stolen parts against ${target}`, game)
             }
         }
     })

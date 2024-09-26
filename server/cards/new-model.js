@@ -1,4 +1,5 @@
 const fs = require('fs')
+const logAction = require('../otherFunctions/logAction.js')
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         fs.readFile('deck.json', 'utf8', (err1, data1) => {
@@ -9,7 +10,7 @@ module.exports = function (req, res, cardid) {
             var games = JSON.parse(data)
             var deck = JSON.parse(data1)
             if (games[game]['event_count'] > 0) {
-                if (deck[discardone]['type'] == 'shooting' && deck[discardtwo]['type'] == 'shooting'&&discardone!=discardtwo) {
+                if (deck[discardone]['type'] == 'shooting' && deck[discardtwo]['type'] == 'shooting' && discardone != discardtwo) {
                     if (games[game]['players'][username]['health'] < 10) {
                         games[game]['players'][username]['health'] = 10
                         const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
@@ -21,6 +22,8 @@ module.exports = function (req, res, cardid) {
                         games[game]["card_played_this_turn"] = true
                         games[game]['event_count']--
                         fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+                        const deck = fs.readFileSync('deck.json', 'utf8')
+                        logAction(`${username} has played new model and discarded ${deck[discardone]['name']} and ${deck[discardtwo]['name']}`, game)
                     }
                 }
             }
