@@ -1,9 +1,7 @@
 const fs = require('fs')
-
+const logAction=require('../otherFunctions/logAction.js')
 module.exports = function (games, game, target) {
     if (games[game]['players'][target]['health'] <= 0) {
-        console.log('test')
-
         try {
             const data = fs.readFileSync('deck.json', 'utf8')
             console.log('loaded')
@@ -18,6 +16,7 @@ module.exports = function (games, game, target) {
                 games[game]['players'][target]['health'] = 1
                 const handIndex = games[game]['players'][target]['hand'].indexOf(lastStandID) // changed 'username' to 'target'
                 games[game]['players'][target]['hand'].splice(handIndex, 1)
+                logAction(`${target} was saved by last stand`,game)
             } else {
                 delete games[game]['players'][target]
                 var currentPlayer = games[game]['order'][games[game]['turn']]
@@ -25,6 +24,7 @@ module.exports = function (games, game, target) {
                     games[game]['order'].splice(games[game]['order'].indexOf(target), 1)
                     games[game]['turn'] = games[game]['order'].indexOf(currentPlayer)
                 }
+                logAction(`${target} was killed`,game)
             }
         } catch (err) {
             console.error("Error reading deck.json:", err)
