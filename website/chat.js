@@ -1,7 +1,7 @@
-document.getElementById('start-chat-button').addEventListener('click', startChat);
+// document.getElementById('start-chat-button').addEventListener('click', startChat);
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keydown', handleKeyPress);
-document.getElementById('start-chat-button').addEventListener('click', startChat);
+// document.getElementById('start-chat-button').addEventListener('click', startChat);
 var chatCooldown=1000;
 function startChat() {
     // Get the joincode and username from input fields
@@ -14,8 +14,8 @@ function startChat() {
     }
 
     // Hide login form and show the chat box
-    document.querySelector('.menu-screen').style.display = 'none';
-    document.querySelector('.chat-container').style.display = 'flex';
+    // document.querySelector('.menu-screen').style.display = 'none';
+    // document.querySelector('.chat-container').style.display = 'flex';
 
     // Start fetching chat messages periodically
     setInterval(fetchChatMessages, chatCooldown);
@@ -38,7 +38,7 @@ function sendMessage() {
     };
 
     // Send the message to the server with headers
-    postWithFallback(`https://${serverip}/sendChat`, headers);
+    postWithFallbackNoJSON(`https://${serverip}/sendChat`, headers);
 
     // Clear the input box after sending the message
     input.value = '';
@@ -54,7 +54,7 @@ function handleKeyPress(event) {
 
 function fetchChatMessages() {
     const headers = { 'joincode': joincode }; // Add joincode header
-    fetchWithFallback(`https://${serverip}/getChat`)
+    fetchWithFallback(`https://${serverip}/getChat`,headers)
         .then(data => {
             if (data && data.length > 0) {
                 clearChatBox();

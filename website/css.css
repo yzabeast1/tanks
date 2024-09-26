@@ -19,7 +19,7 @@ body {
 }
 
 .chat-box {
-    height: 400px;
+    height: 90%;
     padding: 10px;
     overflow-y: auto;
     border-bottom: 1px solid #ccc;
@@ -161,4 +161,41 @@ img {
     color: white;
     border: none;
     cursor: pointer;
+}
+/* Overall container taking up the full screen */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+/* Left pane (Game screen) */
+.pane {
+    height: 100%;
+    overflow: auto; /* Allows content to scroll if necessary */
+}
+
+/* Set default width to 75% for the left pane */
+.left-pane {
+    width: 75%; /* Default to 75% of the container width */
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+/* Set default width to 25% for the right pane */
+.right-pane {
+    width: 25%; /* Default to 25% of the container width */
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+/* Draggable vertical bar */
+.drag-bar {
+    width: 10px; /* Make it visible enough */
+    background-color: #333; /* Dark color for visibility */
+    cursor: col-resize; /* Shows horizontal drag icon */
+    position: relative;
+    z-index: 1; /* Ensure it's on top of the panes */
 }

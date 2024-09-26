@@ -136,7 +136,6 @@ function startGame() {
 function joinStartedGame() {
     document.querySelector('.lobby-screen').style.display = 'none'
     document.querySelector('.game-screen').style.display = 'block'
-    clearInterval(lobbyChatInterval)
     clearInterval(lobbyPlayersInterval)
     clearInterval(lobbyStartedCheckInterval)
     fetchDeck();
@@ -145,3 +144,36 @@ function joinStartedGame() {
 function endTurn() {
     postWithFallbackNoJSON(`https://${serverip}/endTurn`, { joincode: joincode, username: username })
 }
+
+const dragBar = document.getElementById('dragBar');
+const leftPane = document.getElementById('leftPane');
+const rightPane = document.getElementById('rightPane');
+
+// Variable to track whether the user is dragging the bar
+let isDragging = false;
+
+// Mouse down event on the drag bar
+dragBar.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    document.body.style.cursor = 'col-resize';  // Change cursor while dragging
+    document.body.style.userSelect = 'none';   // Disable text selection while dragging
+});
+
+// Mouse move event on the document (tracking drag)
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    // Calculate new width for left pane based on mouse position
+    const newLeftPaneWidth = e.clientX;
+
+    // Update the width of the left pane and right pane
+    leftPane.style.width = `${newLeftPaneWidth}px`;
+    rightPane.style.width = `calc(100% - ${newLeftPaneWidth + dragBar.offsetWidth}px)`;
+});
+
+// Mouse up event to stop dragging
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    document.body.style.cursor = 'default';  // Reset cursor
+    document.body.style.userSelect = '';     // Re-enable text selection after dragging
+});

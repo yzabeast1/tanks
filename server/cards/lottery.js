@@ -7,7 +7,7 @@ module.exports = function (req, res, cardid) {
         const game = req.headers.joincode
         var games = JSON.parse(data)
         if (!games[game]["card_played_this_turn"]) {
-            games = drawCard(gamess, game, username, 5)
+            games = drawCard(games, game, username, 5)
             const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
             games[game]['players'][username]['hand'].splice(handIndex, 1)
             games[game]['card_played_this_turn'] = true

@@ -16,6 +16,7 @@ function joinLobby() {
     }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
+    document.querySelector('.container').style.display='flex'
     document.querySelector('.start-game').style.display = 'none'
     const headers = {
         'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ function joinLobby() {
     lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
     lobbyStartedCheckInterval = setInterval(lobbyStartedCheck, lobbyStartedCheckCoooldown)
     lobbyPlayers();
-    lobbyStartChat();
+    startChat();
 }
 function newGame() {
     username = document.getElementById('username-input').value;
@@ -46,6 +47,7 @@ function newGame() {
     }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
+    document.querySelector('.container').style.display='flex'
     const headers = {
         'Content-Type': 'application/json',
         'username': username
@@ -68,7 +70,7 @@ function newGame() {
     lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
     addLobbyPlayer(username, 'server-messsage')
     lobbyPlayers();
-    lobbyStartChat();
+    startChat();
 }
 function lobbyPlayers() {
     const headers = { 'joincode': joincode }; // Add joincode header
