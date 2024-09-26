@@ -40,6 +40,13 @@ try {
         console.log(`Https server is running at https://localhost:${httpsPort}`);
     });
     httpsApp.use(cors());
+    httpsApp.options('*', (req, res) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.sendStatus(200);
+    });
+
     httpsApp.use(bodyParser.json());
 
     httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
