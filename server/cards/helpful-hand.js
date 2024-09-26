@@ -1,5 +1,6 @@
 const fs = require('fs')
 const drawCard = require('../otherFunctions/drawCard.js')
+const logAction=require('../otherFunctions/logAction.js')
 module.exports = function (req, res, cardid) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         const username = req.headers.username

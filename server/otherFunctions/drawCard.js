@@ -9,28 +9,26 @@ module.exports = function drawCard(games, game, target, number) {
         return games
     }
     else {
-        fs.readFile('deck.json', 'utf8', (err, data) => {
-            const deckSize = JSON.parse(data).length
-            let drawPile = new Set(games[game]['draw_pile']);
-            let playerCards = new Set();
+        deckSize = JSON.parse(fs.readFileSync('deck.json', 'utf8')).length
+        let drawPile = new Set(games[game]['draw_pile']);
+        let playerCards = new Set();
 
-            // Iterate over all players' hands
-            for (const player in games[game]['players']) {
-                const hand = games[game]['players'][player].hand;
-                hand.forEach(card => playerCards.add(card));
+        // Iterate over all players' hands
+        for (const player in games[game]['players']) {
+            const hand = games[game]['players'][player].hand;
+            hand.forEach(card => playerCards.add(card));
+        }
+
+        // Now create an array of numbers from 0 to decksize that are not in the drawPile or playerCards
+        const missingCards = [];
+
+        for (let i = 0; i < deckSize; i++) {
+            if (!drawPile.has(i) && !playerCards.has(i)) {
+                missingCards.push(i);
             }
-
-            // Now create an array of numbers from 0 to decksize that are not in the drawPile or playerCards
-            const missingCards = [];
-
-            for (let i = 0; i < deckSize; i++) {
-                if (!drawPile.has(i) && !playerCards.has(i)) {
-                    missingCards.push(i);
-                }
-            }
-            games[game]['draw_pile']=games[game]['draw_pile'].concat(shuffle(missingCards))
-            drawCard(games,game,target,number)
-        })
+        }
+        games[game]['draw_pile'] = games[game]['draw_pile'].concat(shuffle(missingCards))
+        return drawCard(games, game, target, number)
     }
 }
 

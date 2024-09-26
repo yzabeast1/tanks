@@ -59,8 +59,8 @@ function fetchChatMessages() {
             if (data && data.length > 0) {
                 clearChatBox();
                 data.forEach(message => {
-                    if(messsage.sender!='server')addMessageToChatBox(`${message.sender}: ${message.text}`, 'server-message');
-                    else addMessageToChatBox(`<strong>${message.text}</strong>`,'action-log')
+                    if(message.sender!='server')addMessageToChatBox(`${message.sender}: ${message.text}`, 'server-message');
+                    else addLogToChatBox(`${message.text}`,'action-log')
                 });
             } else {
                 console.warn('No messages found for this joincode.');
@@ -77,6 +77,17 @@ function addMessageToChatBox(message, className) {
     messageElement.className = className;
     messageElement.innerText = message;
 
+    const chatBox = document.getElementById('chat-box');
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+}
+function addLogToChatBox(message, classname){
+    const messageElement = document.createElement('div');
+    messageElement.className = className;
+    strong=document.createElement('strong')
+    strong.className=className
+    strong.innerHTML=message
+    messageElement.appendChild(strong)
     const chatBox = document.getElementById('chat-box');
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
