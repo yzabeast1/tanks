@@ -101,7 +101,7 @@ function renderGame() {
                         cardDiv.appendChild(img);
 
                         // Add click event to zoom in on card
-                        cardDiv.addEventListener('click', () => openModal(img.src));
+                        cardDiv.addEventListener('click', () => openModal(img.src,deck[cardIndex]));
 
                         handDiv.appendChild(cardDiv);
                     });
@@ -118,11 +118,21 @@ function renderGame() {
 
 
 // Open modal to zoom in on card
-function openModal(imageSrc) {
+function openModal(imageSrc,card) {
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
     modalImage.src = imageSrc;
     modal.style.display = 'flex';
+    if(card['type']=='shooting'&&((!renderedData['shooting_allowed']&&renderedData['no_shooting_player']!=username)||renderedData['shooting_count']<=0)){
+        document.getElementById('play-card').style.display='none'
+    }
+    else if(card['type']='event'&&renderedData['event_count']<=0){
+        document.getElementById('play-card').style.display='none'
+    }
+    else if(card['only_card']&&renderedData['card_played_this_turn']){
+        document.getElementById('play-card').style.display='none'
+    }
+    else document.getElementById('play-card').style.display='block'
 }
 
 // Close modal

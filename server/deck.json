@@ -8,7 +8,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair",
@@ -19,7 +20,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair",
@@ -30,7 +32,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair",
@@ -41,7 +44,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair kit",
@@ -52,7 +56,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair kit",
@@ -63,7 +68,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "repair kit",
@@ -74,7 +80,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "last stand",
@@ -85,7 +92,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "safety shield",
@@ -96,7 +104,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "safety shield",
@@ -107,7 +116,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "steal",
@@ -119,7 +129,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "steal",
@@ -131,7 +142,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "steal",
@@ -143,7 +155,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "steal",
@@ -155,7 +168,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "steal",
@@ -167,7 +181,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "draw 2",
@@ -178,7 +193,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "draw 2",
@@ -189,7 +205,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "helpful hand",
@@ -201,7 +218,8 @@
             "joincode",
             "username",
             "discardcard"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "helpful hand",
@@ -213,7 +231,8 @@
             "joincode",
             "username",
             "discardcard"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "crack",
@@ -225,7 +244,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "crack",
@@ -237,7 +257,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "crack",
@@ -249,7 +270,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "crack",
@@ -261,7 +283,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -273,7 +296,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -285,7 +309,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -297,7 +322,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -309,7 +335,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -321,7 +348,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -333,7 +361,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -345,7 +374,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "dent",
@@ -357,7 +387,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "stolen parts",
@@ -369,7 +400,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "stolen parts",
@@ -381,7 +413,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "stolen parts",
@@ -393,7 +426,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "big bomb",
@@ -405,7 +439,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "big bomb",
@@ -417,7 +452,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "big bomb",
@@ -429,7 +465,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "big bomb",
@@ -441,7 +478,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -453,7 +491,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -465,7 +504,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -477,7 +517,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -489,7 +530,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -501,7 +543,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -513,7 +556,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -525,7 +569,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "small bomb",
@@ -537,7 +582,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "landmine",
@@ -548,7 +594,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "nuke",
@@ -560,7 +607,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": true
     },
     {
         "name": "no shooting",
@@ -571,7 +619,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "no shooting",
@@ -582,7 +631,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "more ammo",
@@ -593,7 +643,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "more ammo",
@@ -604,7 +655,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "new model",
@@ -617,7 +669,8 @@
             "username",
             "discardcard",
             "discardcardtwo"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "new model",
@@ -630,7 +683,8 @@
             "username",
             "discardcard",
             "discardcardtwo"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "airstrike",
@@ -642,7 +696,8 @@
             "joincode",
             "username",
             "target"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "spray",
@@ -653,7 +708,8 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": false
     },
     {
         "name": "lottery",
@@ -664,6 +720,7 @@
         "headers": [
             "joincode",
             "username"
-        ]
+        ],
+        "only_card": true
     }
 ]
