@@ -32,13 +32,17 @@ function renderGame() {
         if (!gameData['players'][username]) {
             document.getElementById('dead').style.display = 'block'
             document.getElementById('turn').style.display = 'none'
+            document.getElementById('no-shooting').style.display = 'none'
+            document.getElementById('landmine').style.display = 'none'
             const gameDiv = document.getElementById('game');
             gameDiv.innerHTML = '';  // Clear the game div
         } else {
             if (gameData.order.length == 1) {
                 document.getElementById('win').style.display = "block"
                 document.getElementById('turn').style.display = 'none'
-                document.getElementById('end-turn').style.display='none'
+                document.getElementById('end-turn').style.display = 'none'
+                document.getElementById('no-shooting').style.display = 'none'
+                document.getElementById('landmine').style.display = 'none'
                 const gameDiv = document.getElementById('game');
                 gameDiv.innerHTML = '';  // Clear the game div
             }
