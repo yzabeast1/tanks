@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = function logAction(text, joincode) {
-    const chat = fs.readFileSync('chat.json', 'utf8');
+    var chat = fs.readFileSync('chat.json', 'utf8');
     chat=JSON.parse(chat)
 
     // Directly construct the action object
