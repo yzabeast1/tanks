@@ -4,14 +4,11 @@ module.exports = function (games, game, target) {
     if (games[game]['players'][target]['health'] <= 0) {
         try {
             const data = fs.readFileSync('deck.json', 'utf8')
-            console.log('loaded')
             var deck = JSON.parse(data)
             var lastStandID = -1
-            console.log(lastStandID)
             for (var i = 0; i < deck.length; i++) {
                 if (deck[i]['id'] == 'last-stand') lastStandID = i
             }
-            console.log(lastStandID)
             if (lastStandID != -1 && games[game]['players'][target]['hand'].includes(lastStandID)) {
                 games[game]['players'][target]['health'] = 1
                 const handIndex = games[game]['players'][target]['hand'].indexOf(lastStandID) // changed 'username' to 'target'

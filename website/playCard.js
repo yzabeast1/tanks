@@ -58,7 +58,7 @@ function createDiscardDropdown(discardAction) {
         const card = deck[cardIndex]
         if (card&&card.id!=cardSelected) {
             const option = document.createElement('option');
-            option.value = card.id;
+            option.value = cardIndex;
             option.text = card.name;
             dropdown.appendChild(option);
         }
@@ -98,8 +98,8 @@ function sendPlayedCardToServer() {
         cardid: cardid
     }
     if (selectedPlayer) headers['target'] = selectedPlayer
-    if (discardOptions[0]) headers['discardcard'] = findCardInPlayerHand(discardOptions[0], username)
-    if (discardOptions[1]) headers['discardcardtwo'] = findCardInPlayerHand(discardOptions[1], username)
+    if (discardOptions[0]) headers['discardcard'] = discardOptions[0]
+    if (discardOptions[1]) headers['discardcardtwo'] = discardOptions[1]
     console.log(headers)
     postWithFallback(`https://${serverip}/playcard`, headers)
     // You can now process the selected player and discard options here
