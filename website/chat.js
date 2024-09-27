@@ -3,6 +3,7 @@ document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keydown', handleKeyPress);
 // document.getElementById('start-chat-button').addEventListener('click', startChat);
 var chatCooldown=1000;
+var chatInterval=0;
 function startChat() {
     // Get the joincode and username from input fields
     joincode = document.getElementById('joincode-input').value;
@@ -18,7 +19,7 @@ function startChat() {
     // document.querySelector('.chat-container').style.display = 'flex';
 
     // Start fetching chat messages periodically
-    setInterval(function() {fetchChatMessages(joincode)}, chatCooldown);
+    chatInterval=setInterval(function() {fetchChatMessages(joincode)}, chatCooldown);
     fetchChatMessages(joincode);
 }
 

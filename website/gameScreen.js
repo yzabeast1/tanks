@@ -3,6 +3,7 @@ document.getElementById('end-turn').addEventListener('click', endTurn)
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 var renderedData = {}
+var gameStateInterval = 0;
 
 
 // Fetch the deck from the server
@@ -101,7 +102,7 @@ function renderGame() {
                         cardDiv.appendChild(img);
 
                         // Add click event to zoom in on card
-                        cardDiv.addEventListener('click', () => openModal(img.src,deck[cardIndex]));
+                        cardDiv.addEventListener('click', () => openModal(img.src, deck[cardIndex]));
 
                         handDiv.appendChild(cardDiv);
                     });
@@ -118,21 +119,21 @@ function renderGame() {
 
 
 // Open modal to zoom in on card
-function openModal(imageSrc,card) {
+function openModal(imageSrc, card) {
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
     modalImage.src = imageSrc;
     modal.style.display = 'flex';
-    if(card['type']=='shooting'&&((!renderedData['shooting_allowed']&&renderedData['no_shooting_player']!=username)||renderedData['shooting_count']<=0)){
-        document.getElementById('play-card').style.display='none'
+    if (card['type'] == 'shooting' && ((!renderedData['shooting_allowed'] && renderedData['no_shooting_player'] != username) || renderedData['shooting_count'] <= 0)) {
+        document.getElementById('play-card').style.display = 'none'
     }
-    else if(card['type']='event'&&renderedData['event_count']<=0){
-        document.getElementById('play-card').style.display='none'
+    else if (card['type'] == 'event' && renderedData['event_count'] <= 0) {
+        document.getElementById('play-card').style.display = 'none'
     }
-    else if(card['only_card']&&renderedData['card_played_this_turn']){
-        document.getElementById('play-card').style.display='none'
+    else if (card['only_card'] && renderedData['card_played_this_turn']) {
+        document.getElementById('play-card').style.display = 'none'
     }
-    else document.getElementById('play-card').style.display='block'
+    else document.getElementById('play-card').style.display = 'block'
 }
 
 // Close modal
@@ -157,7 +158,7 @@ function joinStartedGame() {
     clearInterval(lobbyPlayersInterval)
     clearInterval(lobbyStartedCheckInterval)
     fetchDeck();
-    setInterval(fetchGameState, 1000);
+    gameStateInterval = setInterval(fetchGameState, 1000);
 }
 function endTurn() {
     postWithFallbackNoJSON(`https://${serverip}/endTurn`, { joincode: joincode, username: username })
@@ -195,3 +196,13 @@ document.addEventListener('mouseup', () => {
     document.body.style.cursor = 'default';  // Reset cursor
     document.body.style.userSelect = '';     // Re-enable text selection after dragging
 });
+
+function clearIntervals() {
+    // Get a reference to the last interval + 1
+    const interval_id = window.setInterval(function () { }, Number.MAX_SAFE_INTEGER);
+
+    // Clear any timeout/interval up to that id
+    for (let i = 1; i < interval_id; i++) {
+        window.clearInterval(i);
+    }
+}
