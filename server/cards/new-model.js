@@ -22,7 +22,7 @@ module.exports = function (req, res, cardid) {
                         games[game]["card_played_this_turn"] = true
                         games[game]['event_count']--
                         fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
-                        const deck = fs.readFileSync('deck.json', 'utf8')
+                        const deck = JSON.parse(fs.readFileSync('deck.json', 'utf8'))
                         logAction(`${username} has played new model and discarded ${deck[discardone]['name']} and ${deck[discardtwo]['name']}`, game)
                     }
                 }
