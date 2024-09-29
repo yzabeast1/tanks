@@ -14,6 +14,10 @@ function joinLobby() {
         alert('Please enter both a join code and username');
         return;
     }
+    if(username=='server') {
+        alert('Invalid username')
+        return
+    }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
     document.querySelector('.container').style.display='flex'
