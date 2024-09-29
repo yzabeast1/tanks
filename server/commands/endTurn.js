@@ -24,7 +24,7 @@ module.exports = function endTurn(req, res) {
             }
             games[game]['safety_shield_played']=false
             if(!games[game]['shooting_allowed']&&games[game]['no_shooting_player']==newPlayerName)games[game]['shooting_allowed']=true
-            fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+            fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
             res.end()
             logAction(`${username} ended their turn`,game)
         }

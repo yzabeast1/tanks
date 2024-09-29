@@ -14,7 +14,7 @@ module.exports = function (req, res, cardid) {
                 const targetIndex = games[game]['players'][target]['queued_cards'].indexOf(targetCard)
                 games[game]['players'][target]['queued_cards'].splice(targetIndex, 1)
                 games[game]["card_played_this_turn"] = true
-                fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+                fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
             }
         }
     })

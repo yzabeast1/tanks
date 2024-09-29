@@ -13,11 +13,9 @@ module.exports = function (req, res, cardid) {
                 const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                 games[game]['players'][username]['hand'].splice(handIndex, 1)
                 games[game]['card_played_this_turn'] = true
-                fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) {
-                    if (err) console.log(err)
-                    endTurn(req, res)
-                    logAction(`${username} has played nuke against ${target}`, game)
-                })
+                fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
+                endTurn(req, res)
+                logAction(`${username} has played nuke against ${target}`, game)
             }
         }
     })

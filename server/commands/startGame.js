@@ -34,10 +34,10 @@ module.exports = function startGame(req, res) {
                 }
                 newGame['draw_pile'].splice(0, players.length * 4)
                 games[game] = newGame;
-                fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err); });
+                fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"));
                 console.log(`A new game has been started with ${players}`);
                 delete lobbies[game];
-                fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err) })
+                fs.writeFileSync('gameLobbies.json', JSON.stringify(lobbies, null, "\t"))
                 res.status(200).send('Game Started');
             });
         });

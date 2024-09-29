@@ -9,7 +9,7 @@ module.exports = function sendChat(req, res) {
         text=text.replace('\\','')
         gamechat.push(JSON.parse(`{"sender":"${req.headers.username}","time-sent":${Math.floor(new Date().getTime() / 1000)},"text":"${text}"}`))
         chat[req.headers.joincode]=gamechat
-        fs.writeFile('chat.json',JSON.stringify(chat, null, "\t"), function (err) { if (err) console.log(err) })
+        fs.writeFileSync('chat.json',JSON.stringify(chat, null, "\t"))
         res.end()
     })
 }

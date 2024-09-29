@@ -11,7 +11,7 @@ module.exports = function (req, res, cardid) {
                 games[game]['shooting_count']++
                 const handIndex = games[game]['players'][username]['hand'].indexOf(parseInt(cardid))
                 games[game]['players'][username]['hand'].splice(handIndex, 1)
-                fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+                fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
                 logAction(`${username} has played more ammo`,game)
             }
         }

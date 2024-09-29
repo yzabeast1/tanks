@@ -8,7 +8,7 @@ module.exports = function leaveLobby(req, res) {
             if (lobbies[joincode].includes(username)) {
                 lobbies[joincode].pop(username)
                 res.send("left game lobby")
-                fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err); });
+                fs.writeFileSync('gameLobbies.json', JSON.stringify(lobbies, null, "\t"));
             }
             else res.send("not in lobby")
         }

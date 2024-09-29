@@ -15,7 +15,7 @@ module.exports = function (req, res, cardid) {
             games[game]['players'][username]['hand'].splice(handIndex, 1)
             games = removeIfDead(games, game, target)
             games[game]["card_played_this_turn"] = true
-            fs.writeFile('games.json', JSON.stringify(games, null, "\t"), function (err) { if (err) console.log(err) })
+            fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
             logAction(`${username} has played airstrike against ${target}`,game)
         }
     })

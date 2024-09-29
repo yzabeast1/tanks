@@ -20,7 +20,5 @@ module.exports = function logAction(text, joincode) {
     chat[joincode].push(action);
 
     // Write the updated chat object back to chat.json
-    fs.writeFile('chat.json', JSON.stringify(chat, null, "\t"), function (err) {
-        if (err) console.log(err);
-    });
+    fs.writeFileSync('chat.json', JSON.stringify(chat, null, "\t"));
 };

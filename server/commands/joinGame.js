@@ -8,7 +8,7 @@ module.exports = function joinGame(req, res) {
             if (!lobbies[joincode].includes(username)) {
                 lobbies[joincode].push(username)
                 res.send("joined game lobby")
-                fs.writeFile('gameLobbies.json', JSON.stringify(lobbies, null, "\t"), function (err) { if (err) console.log(err); });
+                fs.writeFileSync('gameLobbies.json', JSON.stringify(lobbies, null, "\t"));
             }
             else res.send("no duplicate usernames allowed")
         }
