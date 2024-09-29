@@ -99,6 +99,8 @@ img {
 #modal img {
     height: 100%;
     width: auto;
+    overflow-y:auto;
+    overflow-x: auto;
     /* Auto width with 100% height */
 }
 
@@ -136,6 +138,7 @@ img {
     max-width: 90vw;  /* Maximum width is 90% of the viewport width */
     max-height: 80vh; /* Maximum height is 80% of the viewport height */
     overflow-y: auto; /* Adds scrolling if the content is too large */
+    overflow-x:auto;
     position: relative;
 }
 
