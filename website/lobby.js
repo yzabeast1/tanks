@@ -2,11 +2,34 @@ document.getElementById('new-game').addEventListener('click', newGame);
 document.getElementById('join-lobby').addEventListener('click', joinLobby);
 document.getElementById('show-deck-checkbox').addEventListener('click', toggleDeck)
 document.getElementById('leave-lobby').addEventListener('click', leaveLobby);
+document.getElementById('spectate').addEventListener('click', startSpectating)
 var playersInLobbyCooldown = 1000;
 var lobbyPlayersInterval = 0
 var lobbyStartedCheckCoooldown = 1000
 var lobbyStartedCheckInterval = 0;
 var serverip = '104.179.112.200:4000'
+function startSpectating() {
+    spectating = true
+    username = document.getElementById('username-input').value;
+    joincode = document.getElementById('joincode-input').value;
+    if (joincode.trim() === '' || username.trim() === '') {
+        alert('Please enter both a join code and username');
+        return;
+    }
+    if (username == 'server') {
+        alert('Invalid username')
+        return
+    }
+    document.querySelector('.menu-screen').style.display = 'none'
+    document.querySelector('.lobby-screen').style.display = 'block'
+    document.querySelector('.container').style.display = 'flex'
+    document.querySelector('.start-game').style.display = 'none'
+    document.getElementById('lobby-show-code').innerHTML = "JoinCode: " + joincode
+    lobbyPlayersInterval = setInterval(lobbyPlayers, playersInLobbyCooldown);
+    lobbyStartedCheckInterval = setInterval(lobbyStartedCheck, lobbyStartedCheckCoooldown)
+    lobbyPlayers();
+    startChat();
+}
 function joinLobby() {
     username = document.getElementById('username-input').value;
     joincode = document.getElementById('joincode-input').value;
@@ -14,13 +37,13 @@ function joinLobby() {
         alert('Please enter both a join code and username');
         return;
     }
-    if(username=='server') {
+    if (username == 'server') {
         alert('Invalid username')
         return
     }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
-    document.querySelector('.container').style.display='flex'
+    document.querySelector('.container').style.display = 'flex'
     document.querySelector('.start-game').style.display = 'none'
     const headers = {
         'Content-Type': 'application/json',
@@ -51,7 +74,7 @@ function newGame() {
     }
     document.querySelector('.menu-screen').style.display = 'none'
     document.querySelector('.lobby-screen').style.display = 'block'
-    document.querySelector('.container').style.display='flex'
+    document.querySelector('.container').style.display = 'flex'
     const headers = {
         'Content-Type': 'application/json',
         'username': username

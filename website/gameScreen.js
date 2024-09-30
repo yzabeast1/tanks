@@ -4,6 +4,7 @@ let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 var renderedData = {}
 var gameStateInterval = 0;
+var spectating=false;
 
 
 // Fetch the deck from the server
@@ -30,7 +31,7 @@ async function fetchGameState() {
 // Render the game
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
-        if (!gameData['players'][username]) {
+        if (!gameData['players'][username]&&!spectating) {
             document.getElementById('dead').style.display = 'block'
             document.getElementById('turn').style.display = 'none'
             document.getElementById('no-shooting').style.display = 'none'
@@ -40,6 +41,7 @@ function renderGame() {
         } else {
             if (gameData.order.length == 1) {
                 document.getElementById('win').style.display = "block"
+                document.getElementById('win').innerHTML=gameData['order'][0]+" Wins"
                 document.getElementById('turn').style.display = 'none'
                 document.getElementById('end-turn').style.display = 'none'
                 document.getElementById('no-shooting').style.display = 'none'
@@ -70,7 +72,9 @@ function renderGame() {
                 gameDiv.innerHTML = '';  // Clear the game div
 
                 // Move the current player's data to the top of the player list for rendering
-                const orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+                var orderedPlayers
+                if(!spectating)orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+                else orderedPlayers=gameData.players
 
                 // Render players' hands
                 for (const player in orderedPlayers) {
