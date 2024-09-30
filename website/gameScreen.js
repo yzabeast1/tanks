@@ -1,12 +1,16 @@
 document.getElementById('start-game').addEventListener('click', startGame);
 document.getElementById('end-turn').addEventListener('click', endTurn)
+document.getElementById('spectate-when-dead').addEventListener('click',spectateGame)
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 var renderedData = {}
 var gameStateInterval = 0;
 var spectating=false;
 
-
+function spectateGame(){
+    document.getElementById('spectate-when-dead').style.display='none'
+    spectating=true
+}
 // Fetch the deck from the server
 async function fetchDeck() {
     try {
@@ -33,6 +37,7 @@ function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
         if (!gameData['players'][username]&&!spectating) {
             document.getElementById('dead').style.display = 'block'
+            document.getElementById('spectate-when-dead').style.display='block'
             document.getElementById('turn').style.display = 'none'
             document.getElementById('no-shooting').style.display = 'none'
             document.getElementById('landmine').style.display = 'none'
