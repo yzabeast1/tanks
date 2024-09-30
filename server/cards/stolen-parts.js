@@ -9,6 +9,7 @@ module.exports = function (req, res, cardid) {
         const username = req.headers.username
         if (games[game]['shooting_allowed'] || games[game]['no_shooting_player'] == username) {
             if (games[game]['shooting_count'] > 0) {
+                logAction(`${username} has played stolen parts against ${target}`, game)
                 games[game]['shooting_count']--
                 games[game]['players'][target]['health'] -= 2
                 if (games[game]['players'][username]['health'] < 10) games[game]['players'][username]['health']++
@@ -17,7 +18,6 @@ module.exports = function (req, res, cardid) {
                 games = removeIfDead(games, game, target)
                 games[game]["card_played_this_turn"] = true
                 fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
-                logAction(`${username} has played stolen parts against ${target}`, game)
             }
         }
     })
