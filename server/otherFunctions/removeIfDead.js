@@ -1,5 +1,5 @@
 const fs = require('fs')
-const logAction=require('../otherFunctions/logAction.js')
+const logAction=require('./logAction.js')
 module.exports = function (games, game, target) {
     if (games[game]['players'][target]['health'] <= 0) {
         try {
