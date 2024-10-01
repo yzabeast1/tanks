@@ -17,8 +17,8 @@ module.exports = function (games, game, target) {
             } else {
                 delete games[game]['players'][target]
                 var currentPlayer = games[game]['order'][games[game]['turn']]
+                games[game]['order'].splice(games[game]['order'].indexOf(target), 1)
                 if (currentPlayer != target) {
-                    games[game]['order'].splice(games[game]['order'].indexOf(target), 1)
                     games[game]['turn'] = games[game]['order'].indexOf(currentPlayer)
                 }
                 logAction(`${target} was killed`,game)

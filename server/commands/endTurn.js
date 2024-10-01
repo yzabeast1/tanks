@@ -8,6 +8,7 @@ module.exports = function endTurn(req, res) {
     fs.readFile('games.json', 'utf8', (err, data) => {
         var games = JSON.parse(data)
         if(username==games[game]['order'][games[game]['turn']]){
+            logAction(`${username} ended their turn`,game)
             if (games[game]['turn'] == games[game]['order'].length - 1) games[game]['turn'] = 0
             else games[game]['turn']++
             const newPlayerName=games[game]['order'][games[game]['turn']]
@@ -26,7 +27,6 @@ module.exports = function endTurn(req, res) {
             if(!games[game]['shooting_allowed']&&games[game]['no_shooting_player']==newPlayerName)games[game]['shooting_allowed']=true
             fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
             res.end()
-            logAction(`${username} ended their turn`,game)
         }
         res.end()
     })
