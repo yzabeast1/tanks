@@ -64,40 +64,6 @@ try {
     httpsApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
     httpsApp.get('/getDeck', (req, res) => { getDeck(req, res) })
     httpsApp.get('/checkOnline', (req, res) => { res.end("Online") })
-    const deck = JSON.parse(fs.readFileSync('deck.json', 'utf8'));
-
-    // Dynamically create routes for each card
-    deck.forEach(card => {
-        httpsApp.get(`/cardImage/${card.id}`, (req, res) => {
-            // Path to the image file from deck.json
-            const imagePath = path.join(__dirname, card['image-location']);
-
-            // Check if the image exists
-            fs.access(imagePath, fs.constants.F_OK, (err) => {
-                if (err) {
-                    return res.status(404).send('Image not found');
-                }
-
-                // Stream the image as a response
-                res.sendFile(imagePath);
-            });
-        });
-    });
-    httpsApp.get('/cardImage/back', (req, res) => {
-        // Path to the image file from deck.json
-        const imagePath = path.join(__dirname, "cards/back.png");
-
-        // Check if the image exists
-        fs.access(imagePath, fs.constants.F_OK, (err) => {
-            if (err) {
-                return res.status(404).send('Image not found');
-            }
-
-            // Stream the image as a response
-            res.sendFile(imagePath);
-        });
-
-    })
 }
 catch (e) {
     console.log(`Error with HTTPS\n ${e}`);
