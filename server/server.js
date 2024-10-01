@@ -63,6 +63,7 @@ try {
     httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
     httpsApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
     httpsApp.get('/getDeck', (req, res) => { getDeck(req, res) })
+    httpsApp.get('/checkOnline', (req, res) => { res.end("Online") })
     const deck = JSON.parse(fs.readFileSync('deck.json', 'utf8'));
 
     // Dynamically create routes for each card
