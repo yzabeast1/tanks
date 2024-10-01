@@ -20,6 +20,7 @@ module.exports = function endTurn(req, res) {
                 if(Math.random()>.5){
                     games[game]['landmine_in_play']=false
                     games[game]['players'][newPlayerName]['health']-=6
+                    logAction(`${username} took 6 damage from landmine`,game)
                     removeIfDead(games,game,newPlayerName)
                 }
             }
