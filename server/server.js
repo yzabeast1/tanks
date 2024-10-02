@@ -1,7 +1,6 @@
 const { execSync } = require('child_process');
 const requiredPackages = [
     'express',
-    'body-parser',
     'fs',
     'path',
     'cors',
@@ -22,7 +21,6 @@ function checkAndInstallPackages(packages) {
 checkAndInstallPackages(requiredPackages);
 
 const express = require('express');
-const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
@@ -46,8 +44,6 @@ try {
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         res.sendStatus(200);
     });
-
-    httpsApp.use(bodyParser.json());
 
     httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
     httpsApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
