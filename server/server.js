@@ -1,25 +1,3 @@
-const { execSync } = require('child_process');
-const requiredPackages = [
-    'express',
-    'fs',
-    'path',
-    'cors',
-    'https'
-];
-
-function checkAndInstallPackages(packages) {
-    packages.forEach(pkg => {
-        try {
-            require.resolve(pkg);
-            console.log(`${pkg} is already installed.`);
-        } catch (e) {
-            console.log(`${pkg} is not installed. Installing...`);
-            execSync(`npm install ${pkg}`, { stdio: 'inherit' });
-        }
-    });
-}
-checkAndInstallPackages(requiredPackages);
-
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
