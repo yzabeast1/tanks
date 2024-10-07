@@ -14,14 +14,8 @@ const httpsServer = https.createServer(credentials, httpsApp);
 httpsServer.listen(httpsPort, () => {
     console.log(`Https server is running at https://localhost:${httpsPort}`);
 });
-const corsOptions = {
-    origin: 'https://yzabeast1.github.io/tanks',
-    methods: ['GET', 'POST'],
-    allowedHeaders: '*',
-    optionsSuccessStatus: 200
-  };
-  
-  httpsApp.use(cors(corsOptions));
+
+httpsApp.use(cors(corsOptions));
 
 httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
 httpsApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
