@@ -15,7 +15,7 @@ httpsServer.listen(httpsPort, () => {
     console.log(`Https server is running at https://localhost:${httpsPort}`);
 });
 
-httpsApp.use(cors(corsOptions));
+httpsApp.use(cors());
 
 httpsApp.post('/endTurn', (req, res) => { endTurn(req, res) });
 httpsApp.get('/cardInfo', (req, res) => { cardInfo(req, res) });
