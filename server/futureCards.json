@@ -104,62 +104,7 @@
         "image-location": "cards/cold-war.png",
         "code-location": "cards/cold-war.js"
     },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
-    {
-        "name": "aimed missile",
-        "id": "aimed-missile",
-        "type": "shooting",
-        "image-location": "cards/aimed-missile.png",
-        "code-location": "cards/aimed-missile.js"
-    },
+    
     {
         "name": "locked on",
         "id": "locked-on",

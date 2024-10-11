@@ -722,5 +722,101 @@
             "username"
         ],
         "only_card": true
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
+    },
+    {
+        "name": "aimed missile",
+        "id": "aimed-missile",
+        "type": "shooting",
+        "image-location": "cards/aimed-missile.png",
+        "code-location": "cards/aimed-missile.js",
+        "headers": [
+            "joincode",
+            "username"
+        ],
+        "only_card": false
     }
 ]

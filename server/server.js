@@ -32,10 +32,11 @@ httpsApp.get('/lobbyState', (req, res) => { lobbyState(req, res) })
 httpsApp.post('/leaveLobby', (req, res) => { leaveLobby(req, res) })
 httpsApp.get('/getDeck', (req, res) => { getDeck(req, res) })
 httpsApp.get('/checkOnline', (req, res) => { res.end("Online") })
+httpsApp.post('/activateCalculatedShooting',(req,res)=>{activateCalculatedShooting(req,res)})
 
 const endTurn = require("./commands/endTurn.js")//username, joincode
 const cardInfo = require("./commands/cardInfo.js") // card id
-const playCard = require("./commands/playcard.js") // username, joincode, target, card
+const playCard = require("./commands/playcard.js") // username, joincode, card & card specific headers
 const joinGame = require("./commands/joinGame.js")//username, joincode
 const createGame = require("./commands/createGame.js") // username
 const quitGame = require("./commands/quitGame.js")//username, joincode
@@ -47,3 +48,4 @@ const sendChat = require("./commands/sendChat.js")//joincode, username
 const lobbyState = require("./commands/lobbyState.js")//joincode
 const leaveLobby = require("./commands/leaveLobby.js")//username,joincode
 const getDeck = require("./commands/getDeck.js")
+const activateCalculatedShooting=require('./commands/activateCalculatedShooting.js')//joincode, username, cardid, target
