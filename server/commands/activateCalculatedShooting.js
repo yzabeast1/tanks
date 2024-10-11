@@ -7,12 +7,15 @@ module.exports = function (req, res) {
     var username = req.headers.username
     var target = req.headers.target
     var cardid = req.headers.cardid
-    var cardIndex = games[game]['players'][username]['queued_cards'].indexOf(cardid)
-    if (games[game]['players'][username]['queued_cards'][cardIndex]['countdown'] == 0) {
-        logAction(`${games[game]['players'][username]['queued_cards'][cardIndex]['name']} was used against ${target}`, game)
-        games[game]['players'][target]['health'] -= games[game]['players'][username]['queued_cards'][cardIndex]['damage']
-        games = removeIfDead(games, game, target)
-        delete games[game]['players'][username]['queued_cards'][cardIndex]
-        fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
-    }
+    var cardIndex=-1
+    for(var i=0;i<games[game]['players'][username]['queued_cards'].length;i++)if(games[game]['players'][username]['queued_cards'][i]['cardid']==cardid)cardIndex=i
+    if(cardIndex!=-1){
+    	if (games[game]['players'][username]['queued_cards'][cardIndex]['countdown'] == 0) {
+        	logAction(`${games[game]['players'][username]['queued_cards'][cardIndex]['name']} was used against ${target}`, game)
+        	games[game]['players'][target]['health'] -= games[game]['players'][username]['queued_cards'][cardIndex]['damage']
+        	games = removeIfDead(games, game, target)
+        	games[game]['players'][username]['queued_cards']=games[game]['players'][username]['queued_cards'].splice([cardIndex],1)
+        	fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
+    	}
+	}
 }
