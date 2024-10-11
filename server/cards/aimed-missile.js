@@ -6,6 +6,7 @@ module.exports = function (req, res, cardid) {
     var username = req.headers.username
     if (games[game]['shooting_allowed'] || games[game]['no_shooting_player'] == username) {
         if (games[game]['shooting_count'] > 0) {
+            games[game]['shooting_count']--
             logAction(`${username} has played aimed missile`, game)
             var queuedCard = JSON.parse(`{
                     "name":"aimed missile",

@@ -24,8 +24,8 @@ module.exports = function endTurn(req, res) {
                     removeIfDead(games, game, newPlayerName)
                 }
             }
-            for (var queuedCard in games[game]['players'][newPlayerName]) {
-                queuedCard['countdown']--
+            for (var i=0;i<games[game]['players'][newPlayerName]['queued_cards'].length;i++) {
+                games[game]['players'][newPlayerName]['queued_cards'][i]['countdown']--
             }
             games[game]['safety_shield_played'] = false
             if (!games[game]['shooting_allowed'] && games[game]['no_shooting_player'] == newPlayerName) games[game]['shooting_allowed'] = true

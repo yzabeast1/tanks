@@ -1,4 +1,4 @@
-const fs = reqire('fs')
+const fs = require('fs')
 const logAction = require('../otherFunctions/logAction.js')
 const removeIfDead = require("../otherFunctions/removeIfDead.js")
 module.exports = function (req, res) {
