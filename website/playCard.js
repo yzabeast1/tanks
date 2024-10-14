@@ -6,6 +6,7 @@ function playCard() {
     card = card.split(".")
     card = card[0]
     cardSelected = card
+    document.getElementById('playCardBtn').onclick = sendPlayedCardToServer
     triggerActions(deck.find(item => item.id === card).headers)
 }
 function triggerActions(actions) {

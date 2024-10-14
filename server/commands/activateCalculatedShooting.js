@@ -14,7 +14,7 @@ module.exports = function (req, res) {
         	logAction(`${games[game]['players'][username]['queued_cards'][cardIndex]['name']} was used against ${target}`, game)
         	games[game]['players'][target]['health'] -= games[game]['players'][username]['queued_cards'][cardIndex]['damage']
         	games = removeIfDead(games, game, target)
-        	games[game]['players'][username]['queued_cards']=games[game]['players'][username]['queued_cards'].splice([cardIndex],1)
+            games[game]['players'][username]['queued_cards'].splice(cardIndex, 1);
         	fs.writeFileSync('games.json', JSON.stringify(games, null, "\t"))
     	}
 	}

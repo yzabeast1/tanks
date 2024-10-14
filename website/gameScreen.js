@@ -1,15 +1,15 @@
 document.getElementById('start-game').addEventListener('click', startGame);
 document.getElementById('end-turn').addEventListener('click', endTurn)
-document.getElementById('spectate-when-dead').addEventListener('click',spectateGame)
+document.getElementById('spectate-when-dead').addEventListener('click', spectateGame)
 let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 var renderedData = {}
 var gameStateInterval = 0;
-var spectating=false;
+var spectating = false;
 
-function spectateGame(){
-    document.getElementById('spectate-when-dead').style.display='none'
-    spectating=true
+function spectateGame() {
+    document.getElementById('spectate-when-dead').style.display = 'none'
+    spectating = true
 }
 // Fetch the deck from the server
 async function fetchDeck() {
@@ -35,9 +35,9 @@ async function fetchGameState() {
 // Render the game
 function renderGame() {
     if (JSON.stringify(renderedData) != JSON.stringify(gameData)) {
-        if (!gameData['players'][username]&&!spectating) {
+        if (!gameData['players'][username] && !spectating) {
             document.getElementById('dead').style.display = 'block'
-            document.getElementById('spectate-when-dead').style.display='block'
+            document.getElementById('spectate-when-dead').style.display = 'block'
             document.getElementById('turn').style.display = 'none'
             document.getElementById('no-shooting').style.display = 'none'
             document.getElementById('landmine').style.display = 'none'
@@ -46,7 +46,7 @@ function renderGame() {
         } else {
             if (gameData.order.length == 1) {
                 document.getElementById('win').style.display = "block"
-                document.getElementById('win').innerHTML=gameData['order'][0]+" Wins"
+                document.getElementById('win').innerHTML = gameData['order'][0] + " Wins"
                 document.getElementById('turn').style.display = 'none'
                 document.getElementById('end-turn').style.display = 'none'
                 document.getElementById('no-shooting').style.display = 'none'
@@ -78,8 +78,8 @@ function renderGame() {
 
                 // Move the current player's data to the top of the player list for rendering
                 var orderedPlayers
-                if(!spectating)orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
-                else orderedPlayers=gameData.players
+                if (!spectating) orderedPlayers = Object.assign({}, { [username]: gameData.players[username] }, gameData.players);
+                else orderedPlayers = gameData.players
 
                 // Render players' hands
                 for (const player in orderedPlayers) {
@@ -90,6 +90,26 @@ function renderGame() {
                     const healthText = document.createElement('p');
                     healthText.innerText = `${player}'s Health: ${playerData.health}`;
                     playerDiv.appendChild(healthText);
+
+                    if (playerData['queued_cards'].length > 0) {
+                        const queuedCards = document.createElement('div')
+                        queuedCards.classList.add('queuedCards')
+                        console.log(playerData['queued_cards'])
+                        for (var i = 0; i < playerData['queued_cards'].length; i++) {
+                            var cardDisplay = document.createElement('p')
+                            cardDisplay.innerText = `${playerData['queued_cards'][i]['name']} has a countdown of ${playerData['queued_cards'][i]['countdown']}`
+                            queuedCards.appendChild(cardDisplay)
+                            if (playerData['queued_cards'][i]['countdown'] == 0&&player==username) {
+                                var activateButton = document.createElement('button')
+                                activateButton.classList.add('activateButton')
+                                activateButton.innerHTML = 'Activate'
+                                activateButton.id=playerData['queued_cards'][i]['cardid']
+                                activateButton.addEventListener('click', (event) => { activateCalculatedShootingPopup(event.target.id) })
+                                queuedCards.appendChild(activateButton)
+                            }
+                        }
+                        playerDiv.appendChild(queuedCards)
+                    }
 
                     const handDiv = document.createElement('div');
                     handDiv.classList.add('hand');
@@ -214,4 +234,27 @@ function clearIntervals() {
     for (let i = 1; i < interval_id; i++) {
         window.clearInterval(i);
     }
+}
+function activateCalculatedShootingPopup(cardid) {
+    cardSelected = cardid
+    document.getElementById('playCardBtn').onclick = activateCalculatedShooting
+    const popupContent = document.getElementById('popupContent');
+    popupContent.innerHTML = '';  // Clear previous popup content
+
+    createPlayerSelectPopup();
+
+    showPopup();  // Show the popup after generating content
+
+}
+function activateCalculatedShooting() {
+    const selectedPlayer = document.getElementById('playerDropdown')?.value;
+    var cardid = cardSelected
+    var headers = {
+        joincode: joincode,
+        username: username,
+        cardid: cardid,
+        target: selectedPlayer
+    }
+    postWithFallback(`https://${serverip}/activateCalculatedShooting`, headers)
+    closePopup();  // Close the popup after playing the card
 }
