@@ -94,7 +94,6 @@ function renderGame() {
                     if (playerData['queued_cards'].length > 0) {
                         const queuedCards = document.createElement('div')
                         queuedCards.classList.add('queuedCards')
-                        console.log(playerData['queued_cards'])
                         for (var i = 0; i < playerData['queued_cards'].length; i++) {
                             var cardDisplay = document.createElement('p')
                             cardDisplay.innerText = `${playerData['queued_cards'][i]['name']} has a countdown of ${playerData['queued_cards'][i]['countdown']}`
