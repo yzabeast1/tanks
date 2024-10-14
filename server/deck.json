@@ -818,5 +818,53 @@
             "username"
         ],
         "only_card": false
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js",
+        "headers":[
+            "joincode",
+            "username"
+        ],
+        "only_card":false
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js",
+        "headers":[
+            "joincode",
+            "username"
+        ],
+        "only_card":false
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js",
+        "headers":[
+            "joincode",
+            "username"
+        ],
+        "only_card":false
+    },
+    {
+        "name": "locked on",
+        "id": "locked-on",
+        "type": "shooting",
+        "image-location": "cards/locked-on.png",
+        "code-location": "cards/locked-on.js",
+        "headers":[
+            "joincode",
+            "username"
+        ],
+        "only_card":false
     }
 ]

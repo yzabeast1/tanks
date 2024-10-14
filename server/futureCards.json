@@ -104,35 +104,6 @@
         "image-location": "cards/cold-war.png",
         "code-location": "cards/cold-war.js"
     },
-    
-    {
-        "name": "locked on",
-        "id": "locked-on",
-        "type": "shooting",
-        "image-location": "cards/locked-on.png",
-        "code-location": "cards/locked-on.js"
-    },
-    {
-        "name": "locked on",
-        "id": "locked-on",
-        "type": "shooting",
-        "image-location": "cards/locked-on.png",
-        "code-location": "cards/locked-on.js"
-    },
-    {
-        "name": "locked on",
-        "id": "locked-on",
-        "type": "shooting",
-        "image-location": "cards/locked-on.png",
-        "code-location": "cards/locked-on.js"
-    },
-    {
-        "name": "locked on",
-        "id": "locked-on",
-        "type": "shooting",
-        "image-location": "cards/locked-on.png",
-        "code-location": "cards/locked-on.js"
-    },
     {
         "name": "multistrike",
         "id": "multistrike",
