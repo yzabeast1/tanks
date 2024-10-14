@@ -98,7 +98,7 @@ function renderGame() {
                             var cardDisplay = document.createElement('p')
                             cardDisplay.innerText = `${playerData['queued_cards'][i]['name']} has a countdown of ${playerData['queued_cards'][i]['countdown']}`
                             queuedCards.appendChild(cardDisplay)
-                            if (playerData['queued_cards'][i]['countdown'] == 0&&player==username) {
+                            if (playerData['queued_cards'][i]['countdown'] == 0&&player==username&&gameData['order'][gameData['turn']]==username) {
                                 var activateButton = document.createElement('button')
                                 activateButton.classList.add('activateButton')
                                 activateButton.innerHTML = 'Activate'
