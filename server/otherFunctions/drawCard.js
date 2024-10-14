@@ -17,6 +17,11 @@ module.exports = function drawCard(games, game, target, number) {
         for (const player in games[game]['players']) {
             const hand = games[game]['players'][player].hand;
             hand.forEach(card => playerCards.add(card));
+            if (Array.isArray(player.queued_cards)) {
+                player.queued_cards.forEach(queuedCard => {
+                    playerCards.add(queuedCard.cardid);
+                });
+            }
         }
 
         // Now create an array of numbers from 0 to decksize that are not in the drawPile or playerCards
