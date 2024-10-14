@@ -91,20 +91,6 @@
         "code-location": "cards/wasteful.js"
     },
     {
-        "name": "cold war",
-        "id": "cold-war",
-        "type": "support",
-        "image-location": "cards/cold-war.png",
-        "code-location": "cards/cold-war.js"
-    },
-    {
-        "name": "cold war",
-        "id": "cold-war",
-        "type": "support",
-        "image-location": "cards/cold-war.png",
-        "code-location": "cards/cold-war.js"
-    },
-    {
         "name": "multistrike",
         "id": "multistrike",
         "type": "shooting",

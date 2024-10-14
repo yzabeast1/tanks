@@ -18,10 +18,32 @@ function triggerActions(actions) {
             createPlayerSelectPopup();
         } else if (action.startsWith('discard')) {
             createDiscardDropdown(action);
+        } else if (action == 'queuedcard') {
+            createQueuedCardDropdown(username);
         }
     });
 
     showPopup();  // Show the popup after generating content
+}
+function createQueuedCardDropdown(username) {
+    const popupContent = document.getElementById('popupContent');
+    const label = document.createElement('label');
+    label.innerText = `Select a queued card: `;
+    popupContent.appendChild(label);
+
+    const dropdown = document.createElement('select');
+    dropdown.id = `queuedCardDropdown`;
+    dropdown.innerHTML = '';  // Clear any existing options
+
+    gameData.players[username]['queued_cards'].forEach(card => {
+        const option = document.createElement('option');
+        option.value = card.cardid;
+        option.text = `${card.name} with countdown ${card.countdown}`;
+        dropdown.appendChild(option);
+    });
+
+    popupContent.appendChild(dropdown);
+    popupContent.appendChild(document.createElement('br'))
 }
 function createPlayerSelectPopup() {
     const popupContent = document.getElementById('popupContent');
@@ -57,7 +79,7 @@ function createDiscardDropdown(discardAction) {
 
     gameData.players[username].hand.forEach(cardIndex => {
         const card = deck[cardIndex]
-        if (card&&card.id!=cardSelected) {
+        if (card && card.id != cardSelected) {
             const option = document.createElement('option');
             option.value = cardIndex;
             option.text = card.name;
@@ -89,7 +111,7 @@ function sendPlayedCardToServer() {
     const selectedPlayer = document.getElementById('playerDropdown')?.value;
     const discardOptions = Array.from(document.querySelectorAll('[id^=discardDropdown_]'))
         .map(dropdown => dropdown.value);
-
+    const queuedCard = document.getElementById('queuedCardDropdown')?.value
     console.log('Target:', selectedPlayer || 'No player selected');
     console.log('Discard options:', discardOptions || 'No discard');
     var cardid = findCardInPlayerHand(cardSelected, username);
@@ -101,6 +123,7 @@ function sendPlayedCardToServer() {
     if (selectedPlayer) headers['target'] = selectedPlayer
     if (discardOptions[0]) headers['discardcard'] = discardOptions[0]
     if (discardOptions[1]) headers['discardcardtwo'] = discardOptions[1]
+    if (queuedCard) headers['queuedcard'] = queuedCard
     console.log(headers)
     postWithFallback(`https://${serverip}/playcard`, headers)
     // You can now process the selected player and discard options here

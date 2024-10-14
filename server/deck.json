@@ -866,5 +866,31 @@
             "username"
         ],
         "only_card":false
+    },
+    {
+        "name": "cold war",
+        "id": "cold-war",
+        "type": "support",
+        "image-location": "cards/cold-war.png",
+        "code-location": "cards/cold-war.js",
+        "headers":[
+            "username",
+            "joincode",
+            "queuedCard"
+        ],
+        "only_card":false
+    },
+    {
+        "name": "cold war",
+        "id": "cold-war",
+        "type": "support",
+        "image-location": "cards/cold-war.png",
+        "code-location": "cards/cold-war.js",
+        "headers":[
+            "username",
+            "joincode",
+            "queuedCard"
+        ],
+        "only_card":false
     }
 ]
