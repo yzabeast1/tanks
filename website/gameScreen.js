@@ -5,6 +5,7 @@ let deck = [];  // Deck will be fetched from the server
 let gameData = {};  // Game data will be fetched from the server
 var renderedData = {}
 var gameStateInterval = 0;
+var gameStateCooldown=1000;
 var spectating = false;
 
 function spectateGame() {
@@ -183,10 +184,10 @@ function startGame() {
 function joinStartedGame() {
     document.querySelector('.lobby-screen').style.display = 'none'
     document.querySelector('.game-screen').style.display = 'block'
-    clearInterval(lobbyPlayersInterval)
-    clearInterval(lobbyStartedCheckInterval)
     fetchDeck();
-    gameStateInterval = setInterval(fetchGameState, 1000);
+    clearIntervals()
+    chatInterval=setInterval(function() {fetchChatMessages(joincode)}, chatCooldown);
+    gameStateInterval = setInterval(fetchGameState, gameStateCooldown);
 }
 function endTurn() {
     postWithFallbackNoJSON(`https://${serverip}/endTurn`, { joincode: joincode, username: username })
