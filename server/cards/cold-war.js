@@ -1,7 +1,7 @@
 const fs = require('fs')
 const logAction = require('../otherFunctions/logAction.js')
 module.exports = function (req, res, cardid) {
-    var games = fs.readFileSync("games.json", 'utf8')
+    var games = JSON.parse(fs.readFileSync("games.json", 'utf8'))
     var game = req.headers.joincode
     var username = req.headers.username
     var queuedCard = req.headers.queuedCard
